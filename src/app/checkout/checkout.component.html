@@ -1,0 +1,22 @@
+<div class="checkout-page">
+<h1>
+    Checkout Page
+</h1>
+<div class="row">
+    <div class="col-sm-7 shipping">
+   <h3>Add Shipping Address</h3>
+   <form #orderData="ngForm" class="common-form" (ngSubmit)="orderNow(orderData.value)">
+    <input type="hidden" name="total_price" value="{{totalPrice}}" ngModel>
+    <input type="hidden" name="user_id" value="{{userId}}" ngModel>
+    <input type="email" class="form-input" name="email" placeholder="enter email" name="email" ngModel>
+    <input type="text" class="form-input" name="address" placeholder="enter addres" name="address"ngModel>
+    <input type="text" class="form-input" name="contact" placeholder="enter Contact Detail" ngModel  >
+<button class="form-button">Order Now</button>   
+</form>
+    </div>
+<div class="col-sm-5">
+   <h3 class="total">Total Amount :{{totalPrice}}</h3>
+   <h4>Payment Method : <b>Pay On Delivery</b></h4>
+</div>
+</div>
+</div>

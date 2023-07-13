@@ -1,0 +1,31 @@
+
+<div class="container">
+    <h1 class="product-head"> Product List</h1>
+    <p class="msg">{{productMsg}}</p>           
+    <table class="table" id="customers">
+      <thead>
+        <tr>
+            <th>S.no.</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Color</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of productData; let i = index">
+            <td>{{i+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.color}}</td>
+          <td><img class="img" src="{{item.image}}"></td>
+          <td><a (click)="deleteItem(item.id)">Delete</a>
+            <a (click)="updateItem(item.id)">Update</a></td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>

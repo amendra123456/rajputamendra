@@ -1,0 +1,21 @@
+<div class="seller-product">
+    <div class="sellerAddProduct">
+        <h1 class="product-head" *ngIf="isEdit">Seller Edit Product</h1>
+        <h1 class="product-head" *ngIf="!isEdit">Seller Add Product</h1>
+        <p class="msg">{{productMsg}}</p>
+        
+        
+        <form #sellerAddProduct="ngForm" (ngSubmit)="addProduct(sellerAddProduct.value)" class="common-form">
+            <input type="text" class="form-input" ngModel="{{editProduct?.name}}" name="name" value="" placeholder="Enter name">
+            <input type="text" class="form-input" ngModel="{{editProduct?.category}}" name="category" placeholder="Enter category">
+            <input type="number" class="form-input" ngModel="{{editProduct?.price}}" name="price" placeholder="Enter price">
+            <input type="text" class="form-input" ngModel="{{editProduct?.color}}" name="color" placeholder="Enter color">
+            <input type="text" class="form-input" ngModel="{{editProduct?.image}}" name="image" placeholder="Enter image url">
+            <textarea class="form-input" placeholder="Enter description" ngModel="{{editProduct?.decrs}}" name="decrs"></textarea>
+            <button class="form-button" *ngIf="isEdit">Edit Product</button>
+            <button class="form-button" *ngIf="!isEdit">Add Product</button>
+            
+        </form>
+    </div>
+    
+</div>
