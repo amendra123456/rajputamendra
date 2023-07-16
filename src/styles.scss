@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: sans-serif !important;
+}
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.common-form{
+text-align: center;
+display: flex;
+margin: auto;
+flex-direction: column;
+width: 300px;
+}
+.form-input{
+    height: 35px;
+   padding-left: 10px;
+    margin-bottom: 20px;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+}
+.form-button{
+    height: 35px;
+    border: 1px solid blueviolet;
+    cursor: pointer;
+}
+.error-p{
+    color: red;
+}
+.message-p{
+    color: green;
+}
+.carousel-caption{
+    border-radius: 5px;
+    background-color: #00000082;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: black;
+    border: 5px;
+}
+.invalid-input{
+    color: red;
+    margin-top: -20px;
+    font-size: 12px;
+}
+button:disabled{
+cursor: not-allowed;
+}
+.max-width{
+    width:100%;
+}
+a{
+    cursor: pointer;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
