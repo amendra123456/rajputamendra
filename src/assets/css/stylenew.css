@@ -1,0 +1,464 @@
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1180px !important;
+}
+
+.heading_slide {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;;
+    font-weight: 600;
+}
+p {
+    font-size: 14px;
+    font-family: 'Lato', sans-serif !important;
+}
+strong
+{
+font-family: 'Lato', sans-serif !important;
+}
+.container_box
+{
+  padding: 20px;
+}
+#laser_content
+{
+  display: none;
+}
+.showmore-button {
+    color: red;
+    font-family: 'Lato', sans-serif ;
+    font-size: 15px;
+    text-decoration: underline;
+}
+.side_list li a
+{
+color: black !important;
+text-decoration: none;
+    font-family: 'Lato', sans-serif !important;
+}
+.side_list li {
+    margin-bottom: 4px;
+    list-style-type: none;
+    font-size: 13px;
+    padding: 2px;
+}
+a
+{
+  text-decoration:none !important;
+}
+.side_list {
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+    margin-bottom: 0;
+}
+.btn_small {
+    background: #ea2330;
+    color: #Fff  !important;
+    padding: 10px;
+    padding: 6px 10px;
+    font-size: 10px;
+    text-decoration: none !important;
+}
+
+.side_list li:hover {
+    background-color: #eeeeee;
+}
+.tbl_short .table th, .tbl_short .table td {
+       font-size: 13px;
+    font-family: 'Lato';
+    vertical-align: baseline;
+        border: 1px solid #e9ecef;
+}
+p.smalltxt {
+    font-size: 10px;
+    color: gray;
+    font-weight: 500;
+        margin-bottom: 0;
+}
+
+.Package_block
+{
+  padding: 50px 0px;
+}
+.yatra-box {
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 12px -6px rgba(0,0,0,0.4);
+}
+.best_price{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 9;
+}
+.price {
+  width: 70px;
+  height: 28px;
+  background-color: #096c05;
+  position: relative;
+  color: #fff;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 28px;
+  padding: 0 5px 0 8px;
+}
+
+.yatra-content {
+  padding: 15px;
+}
+.amenities-images {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    float: left;
+    padding: 8px 12px;
+}
+.amenities-box {
+    width: auto;
+    margin: auto 15px 0 0;
+    float: left;
+        text-align: center;
+}
+.days_txt {
+    border: 1px solid #245eb6;
+    max-width: fit-content;
+    padding: 2px 10px;
+    border-radius: 10px;
+        font-size: 12px;
+}
+.dest_txt {
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ef6614;
+}
+.price_sec .pri_tx1 {
+ 
+  
+    color: #232323;
+}
+.price_sec .pri_tx2 img {
+    max-width: 16px;
+    width: 100%;
+}
+.price_sec .pri_tx3 {
+ 
+    font-size: 22px;
+    color: #f26722;
+    padding: 0px 4px;
+}
+.mai-per {
+    font-size: 12px;
+    color: #595858;
+}
+.fontprice {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.contact_btn {
+    list-style-type: none;
+    display: inline-flex;
+}
+.call-icon a
+{
+  background-color: #245eb6;
+  border:1px solid #245eb6;
+}
+.call-icon a:hover
+{
+  background-color: #fff;
+  color: #245eb6;
+}
+.whatsapp-icon a
+{
+  background-color: green;
+  border:1px solid green;
+  
+}
+.whatsapp-icon  a:hover
+{
+  background-color: #fff;
+  color: green;
+}
+.email-icon a
+{
+  background-color:#ef6614;
+  border:1px solid #ef6614;
+}
+.email-icon  a:hover
+{
+  background-color: #fff;
+  color: #ef6614;
+}
+.btn_section {
+    float: right;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .contact_btn li a {
+    padding: 5px 7px;
+    font-size: 12px;
+}
+.yatra-content {
+    text-align: center;
+}
+.days_txt {
+    margin: auto;
+}
+.amenities-images {
+    justify-content: center;
+}
+.price_sec {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.btn_section {
+    text-align: center;
+    float: unset;
+}
+.yatra-list {
+    min-height: unset;
+}
+}
+.yatra-list {
+    min-height: 230px;
+}
+
+@media only screen and (max-width: 976px) {
+  .contact_btn li a {
+   
+    padding: 5px 7px;
+    font-size: 10px;
+}
+}
+
+.yatra-img img {
+  transition: 0.3s;
+  min-height:260px;
+   width: 100%;
+}
+
+.yatra-list:hover .yatra-img img {
+  transform: scale(1.1);
+}
+.yatra-img {  
+  min-height: 160px;
+  overflow: hidden; 
+  
+}
+.nav__item {
+    padding: 0px 10px;
+}
+.seller_txt {
+    font-size: 14px;
+    font-family: 'Lato', sans-serif !important;
+    padding-left: 10px;
+}
+.ruppe_big {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.sharing_txt {
+    font-size: 13px;
+}
+.btn_red {
+    background: #ea2330;
+    color: #FFE !important;
+    padding: 10px 20px;
+    font-size: 10px;
+    text-decoration: none !important;
+  }
+h3.heading-4.heading-4--dark {
+    font-size: 20px;
+}
+.amenities-txt {
+    font-size: 10px;
+}
+.page_list {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+.page_list a {
+    font-size: 14px;
+    font-family: 'Lato', sans-serif !important;
+    color: black;
+    
+}
+.page_list li {
+     margin-bottom: 3px !IMPORTANT;
+}
+.tab_content .tab-pane {
+    padding: 10px;
+}
+.tab_box .nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: 0;
+    background: #cacaca;
+    color: black;
+    font-weight: 600;
+    border:1px solid #cacaca !important;
+    font-size: 14px;
+        padding: 10px 0px;
+}
+.tab_box .nav-pills .nav-link.active, .tab_box .nav-pills .show>.nav-link{
+    color: #2057ac !important;
+    background-color: #fff !important;
+    border:1px solid #2057ac !important;
+}
+.tab_box .nav-fill .nav-item, .tab_box .nav-fill>.nav-link {
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 3px;
+}
+.tab_box .owl-pagination {
+    display: none;
+}
+.form_box_section
+{
+  margin: 20px 0px;
+}
+.form_box_section {
+    margin: -50px 10px 30px 10px;
+    background-image: linear-gradient(to left, #397fe9, #144590);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px grey;
+    text-align: left;
+}
+.form_box_section label {
+    color: #fff;
+    font-family: 'Lato';
+    
+}
+.form_box_section .form-control {
+    background: transparent;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 0px 0px 1px 0px;
+    
+    outline: none;
+    color: #fff;
+}
+.form_head {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.tbl_short table
+{
+  margin-bottom: 0;
+}
+.btn_form {
+  background-image: linear-gradient(to left, #397fe9, #144590);
+    border: none;
+    padding: 6px 20px;
+    color: #Fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+.btn_form:hover {
+    background: #fff;
+    border: none;
+    padding: 6px 20px;
+    color: #184a98;
+    border: 1px solid #fff;
+}
+.social_icon {
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+}
+.social_icon .col-6 {
+    padding: 0;
+}
+.icon_book {
+    color: #fff !important;
+    height: 50px;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    background: #008000;
+}
+.icon_call {
+    color: #fff !important;
+    height: 50px;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    background:#174997;
+}
+.icon_call a,
+.icon_book a {
+    color: #fff;
+    text-decoration: none;
+}
+.icon_book a div,
+.icon_call a div {
+    display: inline-flex;
+    align-items: center;
+}
+.icon_book a div i,
+.icon_call a div i {
+    background: #ffffff00;
+    padding: 6px;
+    margin-right: 10px;
+    border-radius: 50px;
+    font-size: 13px;
+    border: 1px solid #fff;
+
+}
+.icon_social .fa-phone {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: center;
+    background: rgb(255 255 255 / 25%);
+    border-radius: 50%;
+    animation: shadow-pulse 1s infinite;
+}
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+}
+
+.display_mobile_app
+{
+      margin-top: 20px;
+  display: none;
+}
+.displaymob
+{
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+ .form_box_section h3 {
+    text-align: center;
+}
+.displaymob
+{
+  display: block !important;
+}
+.form_box_section {
+    margin: -15px 10px 30px 10px;
+
+}
+.top_cob {
+    margin-top: 20px !IMPORTANT;
+}
+}

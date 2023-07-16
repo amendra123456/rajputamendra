@@ -1,0 +1,347 @@
+@charset "utf-8";
+body { margin: 0; padding: 0; font-family: 'Lato', sans-serif!important }
+.fli { width: 100%; float: left }
+.fli-c { width: 90%; margin: 0 auto }
+.clr { clear: both }
+.fli-m { width: 100%; float: left }
+.custom-content{
+    padding:0;
+}
+.rec {
+    width: 100%;
+    float: left;
+    background: #0082ab;
+    height: 45px;
+    margin-top: -9px;
+}
+.ser-l { width: 50%; float: left }
+.sel1 { width: 25px; float: left }
+.sel2 { width: auto; font-size: 16px; color: #fff; line-height: 45px }
+.ser-r { width: 50%; float: left }
+.ser-rm { width: 100%; float: left; color: #fff; font-size: 13px; text-align: right; line-height: 45px; cursor: pointer }
+.ser-rm:after { width: 19px; height: 19px; content: ''; background: url(../../www.easemytrip.com/home-css-js/img/icon.html); background-position: 426px 193px; background-size: 107px 65px; margin-top: 14px; float: right; margin-left: 7% }
+.modfy-rm { width: 100%; float: left; color: #fff; font-size: 13px; text-align: right; line-height: 45px; cursor: pointer }
+.modfy-rm:after { width: 16px; height: 17px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/web-checkin/srech-icn.html); background-position: -96px 0; background-size: 16px 17px; margin-top: 14px; float: right; margin-left: 7% }
+.tab { width: 100%; float: left; background: #09c; display: none }
+.tab1 { width: 33.3%; float: left; color: #a0c5f6; font-size: 14px; text-align: center; line-height: 40px; cursor: pointer }
+.tab2 { width: 33.3%; float: left; color: #a0c5f6; font-size: 14px; text-align: center; line-height: 40px; cursor: pointer }
+.tab3 { width: 33.3%; float: left; color: #a0c5f6; font-size: 14px; text-align: center; line-height: 40px; cursor: pointer }
+.act1 { color: #fff!important; border-bottom: 5px solid #356dba }
+
+.tab_n { width: 100%; float: left; background: #09c;}
+.tab1_n { width: 24.3%; float: left; color: #a0c5f6; font-size: 14px; text-align: center; line-height: 40px; cursor: pointer }
+.tab2_n { width: 24.3%; float: left; color: #a0c5f6; font-size: 14px; text-align: center; line-height: 40px; cursor: pointer }
+.tab3_n { width: 24.3%; float: left; color: #a0c5f6; font-size: 14px; text-align: center; line-height: 40px; cursor: pointer }
+.tab4_n { width: 24.3%; float: left; color: #a0c5f6; font-size: 14px; text-align: center; line-height: 40px; cursor: pointer }
+.act1_n { color: #fff!important; border-bottom: 4px solid #356dba }
+
+.por { position: relative }
+.poa { position: absolute }
+.frm { width: 100%; float: left }
+.mm { width: 100%; float: left }
+.fli-i { width: 12%; float: left }
+.fli-d { width: 88%; float: left }
+.fli-d input { border: 0; outline: 0; font-size: 12px; font-weight: 700; margin-top: 5px; width: 100%; color: #000 }
+.og { width: 100%; float: left; font-size: 14px; color: #848282 }
+.op { opacity: .3 }
+.mag1 { margin-top: 10px }
+.mag2 { margin-top: 20px }
+.mag3 { margin-top: 30px }
+.orr { width: 100%; float: left; margin-top: 4px; border: 0; font-size: 24px; color: #000; border-bottom: 1px solid #c5c2c2; padding-bottom: 10px }
+.dat { width: 100%; float: left }
+.datl { width: 40%; float: left }
+.dat-m { width: 100%; float: left }
+.dat-l { width: 20%; float: left }
+.dat-r { width: 80%; float: left }
+.date { width: 100%; float: left; color: #848282; font-size: 12px }
+.datr { width: 56%; float: right }
+.datr-m { width: 100%; float: left }
+.datr-l { width: 30%; float: left }
+.datr-r { width: 70%; float: left; position: relative }
+.txt_trns:first-letter { text-transform: uppercase!important }
+.txt_trns { text-transform: lowercase; display: inline-block }
+.bbm { margin-top: 4px; border: 0; border-bottom: 1px solid #c5c2c2; padding-bottom: 10px }
+.orr1 { width: 100%; float: left; margin-top: 10px; border: 0; font-size: 14px; color: #000; border-bottom: 1px solid #c5c2c2; padding-bottom: 10px }
+.orr select { width: 40%; float: left; border: 0; outline: 0; background: #fff url(../../www.easemytrip.com/home-css-js/img/arrow-down.html) no-repeat scroll 96% 50%; background-position: 100% 0; background-size: 15px 7px; -webkit-appearance: none!important; -moz-appearance: none!important; margin-top: 9px }
+.ser { width: 100%; float: left; margin-bottom: 10px }
+.ser input { width: 100%; float: left; font-size: 22px; cursor: pointer; background: #f26822; border: 1px solid #f26822; margin-top: 15px; height: 50px; line-height: 50px; border-radius: 4px; color: #fff; margin-top: 9px; cursor: pointer; outline: 0; }
+.ser input:hover { background: #e06614 }
+.arr { width: 16px; height: 12px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -197px 52px; background-size: 107px 65px; margin-top: 16px }
+.flht { float: left; width: 32px; height: 21px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -144px -30px; background-size: 142px 84px; margin-top: 30px }
+.flht1 { float: left; width: 32px; height: 25px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -182px -26px; background-size: 142px 84px; margin-top: 30px }
+.pas { float: left; width: 24px; height: 22px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -248px -2px; background-size: 171px 102px; margin-top: 0 }
+.set { float: left; width: 27px; height: 22px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -95px -2px; background-size: 155px 81px; margin-top: 0 }
+.date, .date1 { float: left; width: 19px; height: 17px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -129px -2px; background-size: 104px 70px; margin-top: 0 }
+.mt4 { margin-top: 4px }
+.mt23 { margin-left: 23% }
+.one { display: block }
+.two { display: none; width: 100%; float: left; margin-top: 15px }
+.flim { width: 100%; float: left }
+.flil { width: 68%; float: left }
+.flil-m { width: 100%; float: left }
+.flil1 { width: 40%; float: left }
+.sce { width: 100%; float: left; font-size: 32px; text-transform: uppercase }
+.sc { width: 100%; float: left; font-size: 14px }
+.flil2 { width: 20%; float: left }
+.flil3 { width: 40%; float: left }
+.flir { width: 32%; float: left; position: relative }
+.arr1 { width: 18px; height: 13px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -207px 0; background-size: 114px 56px; display: block; margin-top: 12px }
+.dept { width: 100%; float: left; font-size: 12px; color: #999696; padding-top: 5px }
+.dept:before { float: left; width: 20px; height: 16px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -129px -2px; background-size: 104px 70px; margin-top: 0; margin-right: 5% }
+.bord { border-bottom: 1px solid #c5c2c2; margin-bottom: 10px; padding-bottom: 10px }
+.flir input { margin-top: 10px; border: 0; width: 100%; float: left }
+.add { width: 100%; float: left; height: 40px; border: 1px dashed #4480d2; color: #4480d2; font-size: 14px; text-align: center; line-height: 40px; margin-top: 20px; cursor: pointer }
+.cty { width: 100%; float: left; margin-bottom: 15px }
+.cty1 { float: left; font-size: 12px; color: #999696; padding: 3px 6px; background: #e7e2e2; border-radius: 10px }
+.cty1:before { float: left; width: 15px; height: 11px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -61px -20px; background-size: 60px 33px }
+.cty2 { float: left; font-size: 12px; color: #999696; padding: 3px 6px; background: #e7e2e2; border-radius: 10px }
+.cty2:before { float: left; width: 15px; height: 11px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -77px -20px; background-size: 60px 33px }
+.cls { width: 14px; height: 14px; position: absolute; top: 5px; right: 0; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -148px -85px; background-size: 98px 66px; margin-top: 0; content: '' }
+.chng { width: 45px; height: 45px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: 47px -127px; background-size: 125px 86px; display: block; position: absolute; right: -1px; bottom: -22px; transition: all .5s ease 0 }
+.mob-img3 { -moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg) }
+.bon { border: 0 }
+.n-trvl-dtl { background-color: #fff; padding: 7px 0 35px; position: fixed; bottom: 0; width: 100%; z-index: 999; left: 0 }
+.crs2 { position: absolute; top: 2%; left: 70%; cursor: pointer; z-index: 9; background: url(../../www.easemytrip.com/images/mob-web/icon.html); display: none; background-position: -208px -27px; background-size: 137px 91px; width: 18px; height: 18px }
+.cl-bl { color: #bdbcbc }
+.n-trvl-dtl-b { width: 89%; margin: 0 auto; padding: 2% 0; border-bottom: 1px solid #ccc }
+.n-trvl-dtl-l { width: 60%; float: left; color: #000; font-size: 18px }
+.n-trvl-dtl-r, .n-trvl-dtl-r1{ width: 30%; float: right; text-align: right; color: #2196f3; font-size: 18px; cursor: pointer }
+.n-trvl-dtl-b2 { width: 89%; margin: 0 auto; padding: 5% 0 0 }
+.adlts-dt { width: 100%; color: #000 }
+.adt { text-decoration: none; list-style: none; padding: 2%; border: 1px solid #ccc; width: 20%; float: left }
+.inpu-sec-n1 { border: medium none; cursor: pointer; outline: medium none; width: 100%; font-size: 14PX; color: #111; background-color: rgba(255,254,254,0); margin-top: 2% }
+.adult1 { width: 100%; margin: 0; padding: 3% 0; overflow-x: scroll; padding-bottom: 3% }
+.adult1 ul { margin: 0; padding: 5px 0 10px; width: 100% ;
+display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.adult1 li { border: 1px solid #ccc;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 15px;
+    margin: 0 4px 0 0;
+    padding: 8px 0;
+    text-align: center;
+    font-weight: 700;flex: 1 1 auto;}
+.adult1 li:last-child {margin-right:0}
+.act { display: block!important; color: #fff!important; background-color: #2196f3!important; border: 1px solid #2196f3!important }
+.infnt-m { width: 89%; margin: 0 auto; padding: 5% 0 0 }
+.infnt { width: 100%; margin: 0; padding: 3% 0; overflow-x: scroll; padding-bottom: 3% }
+.infnt ul { margin: 0; padding: 5px 0 10px; width: 100% }
+.infnt li { border: 1px solid #ccc;
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-size: 15px;
+    margin: 0 4px 0 0;
+    padding: 8px 0;
+    text-align: center;
+    width: 33px;
+    font-weight: 700; }
+.blk { display: none; background: rgba(0,0,0,.7); cursor: pointer; height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 99 }
+.bx_f2 { margin: 0; width: 100%; height: 100% }
+.auto_saugg { height: 100%; max-height:75vh; overflow-y: scroll; width: 100% }
+.mn-atu-pg { width: 100% }
+.dest-nm { width: 60%; float: left }
+.dest-nm span {  color: #000; font-size: 14px; font-weight: 600; line-height: 14px }
+.dest-nm2 { width: 40%; float: right; text-align: right }
+.act-sr { background: #ECF5FE!important; color: #000;  text-transform: uppercase; letter-spacing: 1px; padding: 7px 20px!important; box-sizing: content-box; -webkit-box-sizing: content-box }
+.dest-nm { width: 60%; float: left }
+.dest-nm2 { width: 40%; float: right; text-align: right }
+.dest-nm2 span { font-size: 14px; font-weight: 600;  padding: 4px 5px; border-radius: 3px; width: 35px; float: right; text-align: center; box-sizing: content-box; -webkit-box-sizing: content-box }
+.fnt-sz3 { font-size: 12px!important; color: #adacac!important; width: 100%; float: left; padding-top: 0; font-weight: 400!important }
+.auto_saugg ul li::after { content: ""; display: block; height: 8px; line-height: 30px; position: absolute; right: 5%; top: 45%; width: 15px }
+.auto_saugg ul { margin: 0; padding: 0 }
+.auto_saugg ul li { list-style: outside none none; margin: 0; overflow: hidden; padding: 12px 20px; font-size: 13px; position: relative; width: calc(100% - 40px); box-sizing: content-box; -webkit-box-sizing: content-box }
+.auto_saugg ul li:hover { background: #f3f3f3 none repeat scroll 0 0!important }
+.auto_saugg ul li a { color: #555; font-family: roboto-bold, Arial, Tahoma, Helvetica, sans-serif; font-size: 16px; text-decoration: none }
+.ac_results li { border-bottom: 1px solid #ccc }
+.ac_even strong { font-family: roboto; font-size: 16px!important }
+.ac_results li { font-family: roboto-bold, Arial, Tahoma, Helvetica, sans-serif; font-size: 12px!important }
+.auto_saugg ul li::after { content: ""; display: block; height: 8px; line-height: 30px; position: absolute; right: 5%; top: 45%; width: 15px }
+.one_way_sug { background: rgba(0,0,0,0) url(../img/explore-n.html) no-repeat scroll 1% 42%; border: 1px solid #fff; border-radius: 4px; color: #555; font-family: sans-serif; font-size: 14px; margin: 0; outline: medium none; padding: 10px 0 10px 10%; width: calc(90% - 10% - 10px); margin-left: 10px }
+.main_frm_f2 { background-color: #f1f1f1; border-radius: 3px; height: auto; margin: 0 auto; position: absolute; top: 66px!important; width: 100%; z-index: 999; left: 0 }
+.cntnt_f3_d { width: 100%; background-color: #fff }
+.blc_brd3 { background-color: #fff; cursor: pointer; height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 99 }
+#lblDepart { display: inline-block!important }
+#lblDeparture { display: inline-block!important }
+.m-lt { width: 48%; float: left }
+.m-ct { width: 2%; float: left; height: 46px; border-right: 1px solid #FFF }
+.m-rt { width: 48%; float: right }
+.tp-lt { width: 100%; height: 50px; text-align: center; padding: 8px 0 0; color: #FFF }
+.tp-rt { width: 100%; height: 54px; text-align: center; padding: 8px 0 0; color: #FFF }
+.bg-whit { border-bottom: 4px solid #FFF; margin-top: 4px }
+.sptx1 { font-size: 15px; font-weight: 700 }
+.week-sec { width: 100%; background-color: #e0e0e0; padding: 5px 0; float: left }
+.week-sec ul { margin: 0; padding: 0 }
+.week-sec ul li { margin: 0; padding: 0; list-style: none }
+.week-sec ul li span { display: block; float: left; width: 14.2%; text-decoration: none; color: #000; text-align: center }
+.month-n-dat-sec { width: 100%; float: left }
+.mon-dat-over { overflow: auto }
+.mon-n-dat { width: 100%; background: #FAFAFA }
+.mon-tit { width: 100%; text-align: center; font-size: 18px; color: #000; padding: 10px 0 }
+.date-sct { width: 100% }
+.date-sct ul { margin: 0; padding: 0 }
+.date-sct ul li { margin: .5%; padding: 0; list-style: none; height: 40px; float: left; width: 13.2%; text-align: center; background: #fff; border-radius: 5px }
+.mai-dv { width: 100%; display: none }
+.loader_Css { width: 100%; float: left; display: block; font-size: 9px; text-align: center; color: green; padding: 2px 0 0 }
+#stickyheaderCal { width: 100%; height: 10px }
+#stickyalias { display: none; height: 10px }
+.tp-d { width: 100%; background-color: #2196f3; padding-top: 6px }
+.m-lt { width: 48%; float: left }
+.m-ct { width: 2%; float: left; height: 46px; border-right: 1px solid #FFF }
+.m-rt { width: 48%; float: right }
+.tp-lt { width: 100%; height: 50px; text-align: center; padding: 8px 0 0; color: #FFF }
+.tp-rt { width: 100%; height: 54px; text-align: center; padding: 8px 0 0; color: #FFF }
+.bg-whit { border-bottom: 4px solid #FFF; margin-top: 4px }
+.sptx1 { font-size: 15px; font-weight: 700 }
+.sec-1-ret { color: #dedede; font-size: 12px }
+.active-date { background-color: #2196f3!important; color: #FFF!important }
+.old-dt { color: #c9c7c7!important; pointer-events: none }
+.old-month-dt { display: none }
+.brdr-m { width: 94%; border-radius: 3px; font-family: roboto, Tahoma, Geneva, sans-serif; margin: 0 auto; margin-bottom: 2% }
+.trv-dtl-mt { width: 40%; position: relative }
+.trv-dtl-m2 { width: 34%; float: left; cursor: pointer; margin-right: 3%; color: #fff }
+.trv-dtl-m3 { width: 25%; float: left; cursor: pointer; color: #fff; margin-top: 2% }
+.trv-dtl-m4 { width: 24%; float: right; cursor: pointer; color: #fff; margin-top: 4% }
+.inp-wd { width: 85%; float: left; border: 0; outline: 0; background: #fff url(../../www.easemytrip.com/images/mob-web/arrow-down.html) no-repeat scroll 96% 50%; background-position: 100% 55%; background-size: 15px 7px; -webkit-appearance: none!important; -moz-appearance: none!important; margin-top: 9px; font-size: 12px }
+.inp-opt { background-color: #fff; color: #fff; padding-bottom: 2%; position: absolute; top: -47px; width: 100%; z-index: 9; border: 1px solid #c5c2c2 }
+.inp-opt ul { margin: 0; padding: 0 }
+.inp-opt ul li { text-decoration: none; list-style: none; padding: 6px 4%; color: #000; background-color: #fff; cursor: pointer; font-size: 12px }
+.recnt-srch-m { width: 40%; float: right; margin-top: 3% }
+.recnt-srch2 { width: 80%; color: #fff; float: right; padding: 2% 0 0 2%; font-size: 14px }
+.rcnt-src { width: 100%; height: 100%; background-color: #fff }
+.rcnt-src2 { width: 100%; float: left; background: #09c; padding: 0 5%; color: #fff; height: 45px; line-height: 45px }
+.rcnt-src2-ar { width: 16px; height: 12px; content: ''; background: url(../../www.easemytrip.com/images/mob-web/icon.html); background-position: -197px 52px; background-size: 107px 65px; margin-top: 16px; float: left; margin-right: 2% }
+.rcnt-src2-tx { font-size: 16px }
+.rcnt-bx { width: 100%; border-bottom: 1px solid #ccc; background-color: #fff; padding: 3% 0 }
+.rcnt-bx2 { width: 89%; margin: 0 auto; color: #000 }
+.rcnt-bx2 span:nth-child(3) { text-align: right }
+.rct-arw { float: left; width: 8%; height: 18px; margin-top: 3px; margin-right: 0; background: url(../../www.easemytrip.com/home-css-js/img/arw.html); background-position: -7px -59px!important; cursor: pointer; background-repeat: no-repeat; background-size: 192px 98px }
+.rct-arw2 { float: left; width: 8%; height: 23px; margin-top: 0; margin-right: 0; background: url(../../www.easemytrip.com/home-css-js/img/arw.html); background-position: -5px -31px!important; cursor: pointer; background-repeat: no-repeat; background-size: 167px 96px; margin-bottom: 1% }
+.rct-arw-tx { font-size: 17px; width: 46%; float: left }
+.txt-r { text-align: right }
+.rct-arw-tx2 { font-size: 12px; width: 89%; color: #7d7b7b; margin: 0 auto }
+#rdateFade { position: relative }
+.mobile-sec { background: #fff }
+.opct { background: rgba(0,0,0,.7); position: fixed; top: 0; height: 100%; width: 100%; display: none; z-index: 99 }
+.modal-content.custom-model-content
+{
+    width:100%;
+    padding:0;
+}
+@media  (min-width:540px)  {
+    .content-booking{
+        position:fixed;
+    }
+}
+@media only screen and (min-width:200px) and (max-width:320px) {
+.orr { font-size: 18px }
+.og { font-size: 12px }
+.ser input { font-size: 19px; height: 40px; line-height: 40px }
+.date-sct ul li span { width: 100% }
+
+.container-radio{ font-size:12px; margin-right: 4px;}
+
+
+}
+.pr { display: block; float: left; width: 100%; background: #fff; border-radius: 4px; padding: 4px 0 0 }
+.active-date span { color: #fff!important }
+.active-date .pr { background: #2196f3!important }
+.old-dt > .loader_Css { display: none }
+
+.fli_autosugst {
+    width: 100%;
+    background: #fff;
+    height: auto;
+    padding: 0;
+    float: left;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 1px 10px rgb(0 0 0 / 4%), 0 4px 5px rgb(0 0 0 / 6%);
+	position: relative;
+    z-index: 1;
+}
+.fli-c-blv2 {
+    width: 90%;
+    margin: 0 auto;
+}
+.sel_fullblock {
+    width: 100%;
+    float: left;
+}
+.arw_wrap {
+    width: 30px;
+    float: left;
+}
+.arrBlack {
+    width: 15px;
+    height: 14px;
+    display: inline-block;
+    background: url(https://www.easemytrip.com/images/mob-web/svg/left-arrow.svg) no-repeat 0 0;
+    background-size: 15px 15px;
+    margin: 19px 8px 0 0;
+    vertical-align: middle;
+}
+.input_autosugst {
+    float: left;
+    width: calc(100% - 30px);
+}
+.input_autosugst_inner {
+    font-size: 17px;
+    padding: 16px 0;
+    display: block;
+    width: 100%;
+    border: none;
+    /* border-bottom: 1px solid #a7a2a2; */
+    outline: none;
+	font-family:'Lato', sans-serif;
+}
+
+.autosugst_newblock {
+    width: 100%;
+    background: #2196F3;
+    height: auto;
+    padding: 14px 0;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+.fullblock_topcol {
+    width: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+}
+.arrBackWhite {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: url(https://www.easemytrip.com/images/mob-web/svg/left-arrow-white.svg) no-repeat 0 0;
+    background-size: 15px 15px;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+.autosHead {font-size: 17px;color: #fff;font-weight: 600;}
+.input_autosugst_New {
+    font-size: 16px;
+    padding: 11px 8px 11px 38px;
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+    border-radius: 4px;
+    background: #fff url(https://www.easemytrip.com/images/mob-web/svg/icon-search.svg) no-repeat 12px 12px;
+}
+.autosugst_newblock {
+    position: -webkit-sticky;
+    position: relative;
+    top: 0;
+    z-index: 1;
+}
