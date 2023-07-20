@@ -1,0 +1,178 @@
+<div class="col-xl-12" *ngIf="showHtmlChart">
+    <div class="card">
+        <div class="card-header topHeadList">
+
+            <h4 class="card-title">Consumer Drop ({{pageName != 'null' ? (pageName | titlecase) : 'All' }}) -
+                {{date_title}} </h4>
+            <span class="count">Count : <strong>{{$table.length}}</strong></span>
+            <div class="display">
+                <!-- <button class="btn btn-light selectbox" (click)="generatePDF()">Pdf downlaod</button>
+                &nbsp;&nbsp; -->
+                <button class="btn btn-light selectbox" (click)="BacktoDash()">Back</button>&nbsp;
+                <button class="btn btn-light selectbox" (click)="exportexcel()">Export to Excel</button>&nbsp;
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+
+                <div class="layout">
+
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="selectedDay" (change)="toggleFilter('day')" class="form-control col-sm-10"
+                            id="sel1">
+                            <option selected value="null">Day</option>
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="selectedMonth" (change)="toggleFilter('month')"
+                            class="form-control col-sm-10" id="sel1">
+                            <option selected value="null">Month</option>
+                            <option *ngFor="let data of monthsList" [value]="data.value">{{data.value}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="selectedYear" (change)="toggleFilter('year')"
+                            class="form-control col-sm-10" id="sel1">
+                            <option selected value="null">Year</option>
+                            <option *ngFor="let data of totalYearForFilter" [value]="data">{{data}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="pageName" (change)="toggleFilter('names')" class="form-control col-sm-10"
+                            id="sel1">
+                            <option selected disabled value="null">Page Name</option>
+                            <option *ngFor="let name of names_" [value]="name">{{name}}</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-light selectbox" (click)="Reset()">Reset</button>&nbsp;
+                    <div class="page-records">
+                        <div class="form-group selectbox special">
+                            <h6 style="margin-top: 5px;">Per Page Record:</h6>
+                        </div>
+                        <div class="form-group selectbox special mr4 select_drop" style="float: right;">
+                            <!-- <h6>Per Page Record:</h6> -->
+                            <select #selectedperPage (change)="itemPerPage(selectedperPage.value)"
+                                class="form-control col-sm-10">
+                                <option value="All">All</option>
+                                <option selected value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="form-group selectbox special mr4 select_drop">
+                    <select [(ngModel)]="selectedMonth" (change)="onMonthChange()" class="form-control col-sm-10" id="sel1">
+                      <option selected value="null">Month</option>
+                      <option *ngFor="let option of totalMonthForFilter" [value]="option.key">
+                        {{ option.value }}
+                      </option>
+                    </select>
+                </div> -->
+
+                <table class="table mb-0" id="excel-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-center">S.No</th>
+                            <th class="text-center">Latitude <i (click)="sort('latitude')" class="fa fa-sort"></i>
+                            </th>
+                            <th class="text-center">Longitude <i (click)="sort('longitude')" class="fa fa-sort"></i>
+                            </th>
+                            <th class="text-center">Affiliate Name <i (click)="sort('utm_source')"
+                                    class="fa fa-sort"></i></th>
+                            <th class="text-center">Source Name <i (click)="sort('sourceName')" class="fa fa-sort"></i>
+                            </th>
+                            <!-- <th class="text-center">Name</th>
+                            <th class="text-center">Gender</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Mobile</th> -->
+                            <!-- <th class="text-center">Location</th> -->
+                            <!-- <th class="text-center">Postal</th> -->
+                            <th class="text-center">Country Code<i (click)="sort('countryCode')" class='fa fa-sort'></i>
+                            </th>
+                            <!-- <th class="text-center">Appliance Name</th>
+                            <th class="text-center">Brand Name</th>
+                            <th class="text-center">Transaction No</th>
+                            <th class="text-center">Core Reference No</th> -->
+                            <th class="text-center">IP Address <i class="fa fa-sort" (click)="sort('ipAddress')"></i>
+                            </th>
+                            <th class="text-center">Created Date <i class="fa fa-sort"
+                                    (click)="sort('modified_date')"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let data of $table | paginate:{itemsPerPage: itemsPerPageC, currentPage:p};let i=index;">
+                            <td class="text-center" scope="row">{{(p - 1) * itemsPerPageC + i + 1}}</td>
+                            <!-- <td *ngIf="data?.latitude !='' " class="text-center">{{data.latitude}} </td><td *ngIf="data?.latitude =='' " class="text-center">N.A</td> -->
+                            <td class="text-center">{{data.latitude?data.latitude:'N.A'}} </td>
+                            <td class="text-center">{{data.longitude?data.longitude:'N.A'}} </td>
+                            <td class="text-center">{{data.utm_source?data.utm_source:'N.A'}}</td>
+                            <td class="text-center">{{data.sourceName?data.sourceName:'N.A'}}</td>
+                            <!-- <td class="text-center">{{data.userDetail.firstName?(data?.userDetail?.firstName+' '+data?.userDetail?.lastName):'N.A'}}</td>
+                            <td class="text-center">{{data?.userDetail?.gender == 1?'Male':data?.userDetail?.gender==2?'Female':'N.A'}}</td>
+                            <td class="text-center">{{data?.userDetail?.emailId?data?.userDetail?.emailId:'N.A'}}</td>
+                            <td class="text-center">{{data?.userDetail?.mobilePhone?data?.userDetail?.mobilePhone:'N.A'}}</td> -->
+                            <!-- <td class="text-center">{{data?.userDetail?.location?data?.userDetail?.location:'N.A'}}</td> -->
+                            <!-- <td class="text-center">{{data?.userDetail?.postalCode?data?.userDetail?.postalCode:'N.A'}}</td> -->
+                            <td class="text-center">{{data.countryCode?data.countryCode:'N.A'}}</td>
+
+                            <!-- <td *ngIf="data?.bankTransaction !='' " class="text-center">
+                                <span *ngFor="let tdata of data.bankTransaction;let j=index;">{{tdata.applianceName}}{{j!=(data.bankTransaction.length-1)?', ':''}} </span>
+                            </td> -->
+                            <!-- <td *ngIf="data?.bankTransaction !='' " class="text-center">
+                                <span *ngFor="let tdata of data.bankTransaction;let j=index;">{{tdata.brandName}}{{j!=(data.bankTransaction.length-1)?', ':''}} </span>
+                            </td> -->
+                            <!-- <td *ngIf="data?.bankTransaction !='' " class="text-center">
+                                <span *ngFor="let tdata of data.bankTransaction;let j=index;">{{tdata.transactionNo}}{{j!=(data.bankTransaction.length-1)?', ':''}} </span>
+                            </td> -->
+
+                            <!-- <td *ngIf="data?.bankTransaction !='' " class="text-center">
+                                <span *ngFor="let tdata of data.bankTransaction;let j=index;">{{tdata.coreReference}}{{j!=(data.bankTransaction.length-1)?', ':''}} </span>
+                            </td> -->
+                            <!-- <td *ngIf="data?.bankTransaction =='' " class="text-center">N.A</td> -->
+                            <td class="text-center">{{data.ipAddress?data.ipAddress:'N.A'}}</td>
+                            <td class="text-center">{{data.modified_date?(data.modified_date | date : 'dd-MM-yyyy h:mm
+                                a'):'N.A'}}</td>
+                            <!-- <td *ngIf="data?.countryCode !='' " class="text-center">{{data.countryCode}}</td><td *ngIf="data?.countryCode =='' " class="text-center">N.A </td> -->
+                            <!-- <td class="text-center";" scope="row">{{i+1}}</td>
+                            <td style="text-align: center;">{{data.userDetail.title+data.userDetail.firstName+" "+data.userDetail.lastName}}</td>
+                            <td style="text-align: center;">{{data.userDetail.emailId}}</td>
+                            <td style="text-align: center;">{{data.userDetail.mobilePhone}}</td>
+                            <td style="text-align: center;">{{data.userDetail.postalCode}}</td>
+                            <td style="text-align: center;">{{data.userDetail.city}}</td> -->
+
+                        </tr>
+                        <tr *ngIf="$table.length<=0">
+                            <td colspan="11" class="text-center" style="color:rgb(143, 71, 71);">Records Not Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div *ngIf="$table.length>0" id="pagination" class="mt-2">
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="loader-container" *ngIf="!showHtmlChart">
+    <div class="lds-facebook">
+        <img src="assets/images/whiteBgLoader.gif" />
+    </div>
+</div>

@@ -1,0 +1,122 @@
+<!-- <div class="row">
+    <div class="col-xl-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title mb-0">Cosumer Plan Distribution Details</h4>
+          </div>
+          <div class="card-body">
+            <canvas baseChart [datasets]="pieChart.datasets" chartType="pie" [options]="pieChart.options" height="260">
+            </canvas>
+          </div>
+        </div>
+      </div>
+</div> -->
+
+<!-- <div class="col-xl-6">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title mb-0">Cosumer Cover Distribution Details</h4>
+        <div class="form-group selectbox special">
+          <select [(ngModel)]="selected_cover_Cover" (change)="get_cover_SelectCover()" class="form-control col-sm-10" id="sel1">
+            <option selected disabled value="null">Select Cover</option>
+            <option *ngFor="let data of coverListData" [value]="data._id">{{data.title}}</option>
+          </select>
+        </div>
+        <div class="display btnBox">
+          <button type="button" class="btn btn-soft-secondary
+              btn-sm" (change)="togglePlanDistributionChart('yesterday')">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="coverDistributionOptions" id="coverDistributionRadio1"
+                [checked]="coverDistributionCheck1" value="yesterday">
+              <label class="form-check-label" for="coverDistributionRadio1">Yesterday</label>
+            </div>
+          </button>
+          <button type="button" class="btn btn-soft-secondary
+              btn-sm ms-1" (change)="togglePlanDistributionChart('monthly')">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="coverDistributionOptions" id="coverDistributionRadio2"
+                [checked]="coverDistributionCheck2" value="monthly">
+              <label class="form-check-label" for="coverDistributionRadio2">Monthly</label>
+            </div>
+          </button>
+          <button type="button" class="btn btn-soft-secondary
+              btn-sm ms-1" (change)="togglePlanDistributionChart('total')">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="coveristributionOptions" id="coverDistributionRadio3"
+                [checked]="coverDistributionCheck3" value="total">
+              <label class="form-check-label" for="coverDistributionRadio3">Total</label>
+            </div>
+          </button>
+
+        </div>
+      </div>
+      <div class="card-body">
+        <figure class="highcharts-figure">
+          <div [chart]="coverChart"></div>
+        </figure>
+      </div>
+    </div>
+
+  </div> -->
+
+<div *ngIf="showHtml">
+  <div class="card graphCard">
+    <div class="card-header topHeadList">
+      <h4 class="card-title mb-0">Plan Distribution</h4>
+      <div class="display btnBox">
+        <div class="form-group selectbox special mr4 select_drop">
+          <select [(ngModel)]="selectedDay" (change)="onDayChange()" class="form-control col-sm-10"  id="sel1">
+            <option selected disabled value="null">Day</option>
+            <option value="today">Today</option>
+            <option value="yesterday">Yesterday</option>
+          </select>
+        </div>
+        <!-- <button type="button" class="btn btn-soft-secondary mr4 btn-sm" (change)="getToDayData()">
+          <div class="form-check form-check-inline col-sm">
+            <input class="form-check-input" type="radio" name="plan_today_radio" id="plan_today_radio"
+              [checked]="plan_today_radio" value="today" />
+            <label class="form-check-label" for="plan_today_radio">Today</label>
+          </div>
+        </button>
+        <button type="button" class="btn btn-soft-secondary mr4 btn-sm" (change)="dailyData()">
+          <div class="form-check form-check-inline col-sm">
+            <input class="form-check-input" type="radio" name="PlanDistributionOptions" id="PlanDistributionRadio1"
+              [checked]="planDistributionCheck1" value="yesterday" />
+            <label class="form-check-label" for="PlanDistributionRadio1">Yesterday</label>
+          </div>
+        </button> -->
+
+        <div class="form-group selectbox special mr4 select_drop">
+          <select [(ngModel)]="selectedMonth" (change)="onMonthChange()" class="form-control col-sm-10" id="sel1">
+            <option selected value="null">Month</option>
+            <option *ngFor="let option of totalMonthForFilter" [value]="option.key">
+              {{ option.value }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group selectbox special select_drop">
+          <select [(ngModel)]="selectedYear" (change)="onYearChange()" class="form-control col-sm-10" id="sel1">
+            <option selected value="null">Year</option>
+            <option *ngFor="let option of yearsList" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <!-- <figure class="highcharts-figure"> -->
+      <div [chart]="planChart" *ngIf="planChart; else dataNotFound"></div>
+      <ng-template #dataNotFound>
+        <div class="text-center mt-4">Data Not Found</div>
+      </ng-template>
+      <!-- </figure> -->
+    </div>
+  </div>
+</div>
+
+<!-- <div class="loader-container" *ngIf="!showHtml">
+  <div class="lds-facebook">
+    <img src="assets/images/whiteBgLoader.gif" />
+  </div>
+</div> -->

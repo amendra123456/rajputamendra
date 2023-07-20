@@ -1,0 +1,120 @@
+<!-- card pad -->
+
+<!-- <h3 class="card-title " style="display: inline;">Campaign Dashboard</h3> -->
+<!-- <app-pagetitle  [breadcrumbItems]="breadCrumbItems"></app-pagetitle> -->
+<!-- <h2 style="font-size: 16.4px;" class="card-title">Campaign  Dashboard</h2> -->
+<div *ngIf="showHtmlChart">
+  <div>
+    <div class="card graphCard">
+      <div class="card-header topHeadList">
+        <h4 style="font-size: 13.4px" class="card-title mb-0">
+          Top 5 Competitions
+        </h4>
+        <div class="display btnBox">
+          <div class="form-group selectbox special mr4 selectType select_drop">
+            <select
+              [(ngModel)]="selectedMatrix"
+              (change)="getSelectMatrics()"
+              class="form-control col-sm-10"
+              id="sel1"
+            >
+              <option selected disabled value="null">Select Metrics</option>
+
+              <option value="Landing">Landing</option>
+              <option value="Conversion">Conversion</option>
+              <!-- <option value="Revenue">Revenue</option> -->
+            </select>
+          </div>
+          <div class="form-group selectbox special mr4 select_drop">
+            <select [(ngModel)]="selectedDay" (change)="onDayChange()" class="form-control col-sm-10"  id="sel1">
+              <option selected disabled value="null">Day</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+            </select>
+          </div>
+          <!-- <button type="button" class="btn btn-soft-secondary mr4 btn-sm" (change)="getToDayData()">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="today_camptition" id="today_camptition"
+                [checked]="today_camptition_Check" value="today" />
+              <label class="form-check-label" for="today_camptition">Today</label>
+            </div>
+          </button>
+          <button
+            type="button"
+            class="btn btn-soft-secondary mr4 btn-sm"
+            (change)="get_yesterday_Data()"
+          >
+            <div class="form-check form-check-inline col-sm">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="top5inlineRadioOptions"
+                id="top5inlineRadio1"
+                [checked]="first_radio_Check"
+                value="yesterday"
+              />
+              <label class="form-check-label" for="top5inlineRadio1"
+                >Yesterday</label
+              >
+            </div>
+          </button> -->
+          <!-- <button type="button" class="btn btn-soft-secondary
+                          btn-sm ms-1" (change)="toggleWithDataChart('monthly')">
+                        <div class="form-check form-check-inline col-sm">
+                            <input class="form-check-input" type="radio" name="top5inlineRadioOptions"
+                                id="top5inlineRadio2" [checked]="second_radio_Check" value="monthly">
+                            <label class="form-check-label" for="top5inlineRadio2">Monthly</label>
+                        </div>
+                    </button>
+                    <button type="button" class="btn btn-soft-secondary
+                          btn-sm ms-1" (change)="toggleWithDataChart('total')">
+                        <div class="form-check form-check-inline col-sm">
+                            <input class="form-check-input" type="radio" name="top5inlineRadioOptions"
+                                id="top5inlineRadio3" [checked]="third_radio_Check" value="total">
+                            <label class="form-check-label" for="top5inlineRadio3">Total</label>
+                        </div>
+                    </button> -->
+
+          <div class="form-group selectbox special mr4 select_drop">
+            <select
+              [(ngModel)]="selectedMonth"
+              (change)="onMonthChange()"
+              class="form-control col-sm-10"
+              id="sel1"
+            >
+              <option selected value="null">Month</option>
+              <option *ngFor="let option of monthsList" [value]="option.key">
+                {{ option.value }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group selectbox special select_drop">
+            <select
+              [(ngModel)]="selectedYear"
+              (change)="onYearChange()"
+              class="form-control col-sm-10"
+              id="sel1"
+            >
+              <option selected value="null">Year</option>
+              <option *ngFor="let option of yearsList" [value]="option">
+                {{ option }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div [chart]="pieChartData" *ngIf="pieChartData; else dataNotFound"></div>
+        <ng-template #dataNotFound>
+          <div class="text-center mt-4">Data Not Found</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loader-container" *ngIf="!showHtmlChart">
+  <div class="lds-facebook">
+    <img src="assets/images/whiteBgLoader.gif" />
+  </div>
+</div>

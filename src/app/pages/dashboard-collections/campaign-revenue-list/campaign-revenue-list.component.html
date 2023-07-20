@@ -1,0 +1,180 @@
+<!-- <app-pagetitle title="Campaign Dashboard" [breadcrumbItems]="breadCrumbItems"></app-pagetitle> -->
+
+
+<div class="col-xl-12" *ngIf="showHtmlChart">
+    <div class="card">
+        <div class="card-header topHeadList">
+            <h4 class="card-title">Revenue Details ({{selectedPlan != 'null' ? selectedPlan : 'All' }}) - {{date_title}} </h4>
+            
+            <span class="count">Count : <strong>{{$table.length}}</strong></span>
+            
+            <div class="display">
+                <!-- <button class="btn btn-light selectbox" (click)="generatePDF()">Pdf downlaod</button>
+                &nbsp;&nbsp; -->
+                <button class="btn btn-light selectbox" (click)="BacktoDash()">Back</button>&nbsp;
+                <button class="btn btn-light selectbox" (click)="exportexcel()">Export to Excel</button>&nbsp;
+            </div>
+        </div>
+        
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="filter">                 
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select
+                          [(ngModel)]="selectedDay"
+                          (change)="onChangeParam('day')"
+                          class="form-control col-sm-10"
+                          id="sel1"
+                        >
+                          <option selected disabled value="null">Day</option>
+                          <option value="today">Today</option>
+                          <option value="yesterday">yesterday</option>
+                        </select>
+                      </div>
+
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select
+                          [(ngModel)]="selectedMonth"
+                          (change)="onChangeParam('month')"
+                          class="form-control col-sm-10"
+                          id="sel1"
+                        >
+                          <option selected value="null">Month</option>
+                          <option
+                            *ngFor="let option of monthsList"
+                            [value]="option.key"
+                          >
+                            {{ option.value }}
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="form-group selectbox mr4 special select_drop">
+                        <select
+                          [(ngModel)]="selectedYear"
+                          (change)="onChangeParam('year')"
+                          class="form-control col-sm-10"
+                          id="sel1"
+                        >
+                          <option selected disabled value="null">Year</option>
+                          <option *ngFor="let option of yearsList" [value]="option">
+                            {{ option }}
+                          </option>
+                        </select>
+                      </div>
+
+                      <div class="form-group selectbox mr4 special select_drop">
+                        <select
+                          [(ngModel)]="selectedPlan"
+                          (change)="onChangeParam('plan')"
+                          class="form-control col-sm-10"
+                          id="sel1"
+                        >
+                          <option disabled value ='null'>Plan</option>
+                          <option value="Standard_Elite">Standard_Elite</option>
+                          <option value="Standard_Ultra">Standard_Ultra</option>
+                          <option value="Standard_Basic">Standard_Basic</option>
+                          <option value="Standard_Basic7Drp">Standard_Basic7Drp</option>
+                          <option value="Premium_Elite">Premium_Elite</option>
+                          <option value="Premium_Ultra">Premium_Ultra</option>
+                          <option value="Premium_Basic">Premium_Basic</option>
+                          <option value="Premium_BasicDrp">Premium_BasicDrp</option>
+                          <!-- <option value="3 Yearly - Elite">3 Yearly-Elite</option>
+                          <option value="Yearly-Ultra">Yearly-Ultra</option>
+                          <option value="Monthly-Basic">Monthly-Basic</option>
+                          <option value="Monthly-Basic 7DRP">Monthly-Basic 7DRP</option> -->
+                        </select>
+                      </div>
+                      <button class="btn btn-light selectbox" (click)="Reset()">Reset</button>&nbsp;
+
+                      <!-- <div class="form-group selectbox mr4 special select_drop">
+                        <select
+                          [(ngModel)]="selectedCover"
+                          (change)="onChangeParam('cover')"
+                          class="form-control col-sm-10"
+                          id="sel1">
+                          <option disabled>Cover</option>
+                          <option value="Standard">Standard</option>
+                          <option value="Premium">Premium</option>
+                        </select>
+                      </div> -->
+                      <div class="page-records">
+                        <div class="form-group selectbox special">
+                            <h6 style="margin-top: 5px;">Per Page Record:</h6>
+                        </div>
+                        <div class="form-group selectbox special mr4 select_drop" style="float: right;">
+                            <!-- <h6>Per Page Record:</h6> -->
+                            <select #selectedperPage (change)="itemPerPage(selectedperPage.value)"
+                                class="form-control col-sm-10">
+                                <option value="All">All</option>
+                                <option selected value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table mb-0" id="excel-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-center">S.No</th>
+                            <th class="text-center">User Name <i (click)="sort('userName')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Email <i (click)="sort('email')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Mobile <i (click)="sort('phone')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Appliance <i (click)="sort('applianceName')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Cover Name <i (click)="sort('cover_name')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Plan Name <i (click)="sort('plan_name')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Price <i (click)="sort('discounted')" class="fa fa-sort"></i></th>
+                            <th class="text-center">IP Address <i (click)="sort('ipAddress')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Created Date <i (click)="sort('createdOn')" class="fa fa-sort"></i></th>
+                           
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of $table| paginate:{itemsPerPage: itemsPerPageC, currentPage:p};let i=index;">
+                            <td class="text-center" scope="row">{{(p - 1) * itemsPerPageC + i + 1}}</td>
+                            <td class="text-center"><p appBlockCopyPaste [innerHTML]="data?.userName | transformstring:'name'"></p></td>
+                            <td class="text-center"><p appBlockCopyPaste [innerHTML]="data.email | transformstring:'@'"></p></td>
+                            <td class="text-center"><p appBlockCopyPaste [innerHTML]="data.phone | transformstring:'mob'"></p></td>
+                            <td class="text-center">{{data?.applianceName ? data?.applianceName : 'N.A' }}</td>
+                            <td class="text-center">{{data?.cover_name ? data?.cover_name : 'N.A'}}</td>
+                            <td class="text-center">{{data?.plan_name ? data.plan_name : 'N.A'}}</td>
+                            <td class="text-center">{{data?.discounted ? data?.discounted : 'N.A'}}</td>
+                            <td class="text-center">{{data?.ipAdress ? (data?.ipAdress): 'N.A'}}</td>
+                            <td class="text-center">{{data.createdOn ? (data?.createdOn | date : 'dd-MM-yyyy h:mm a'): 'N.A'}}</td>
+                            
+
+                        </tr>
+                        <tr *ngIf="$table.length<=0">
+                            <td colspan="9" class="text-center" style="color:rgb(143, 71, 71);">Records Not Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+            <div *ngIf="$table.length>0" id="pagination" class="mt-2">
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+<!-- <div class="loader" *ngIf="!showHtmlChart">
+    <div class="load-icon">
+        <i class="fa fa-spinner faa-spin animated"></i>
+        Loading...
+    </div>
+</div> -->
+
+
+<div class="loader-container" *ngIf="!showHtmlChart">
+        <div class="lds-facebook">
+        <img src="assets/images/whiteBgLoader.gif" />
+    </div>
+</div>

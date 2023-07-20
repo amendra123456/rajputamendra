@@ -1,0 +1,59 @@
+<!-- <div class="col-xl-6 mt-3"> -->
+
+<!-- </div> -->
+<div *ngIf="showHtmlChart">
+  <div>
+    <div class="card graphCard">
+      <div class="card-header topHeadList">
+        <h4>Revenue</h4>
+        <div class="display btnBox">
+          <div class="form-group selectbox special mr4 select_drop">
+            <select [(ngModel)]="selectedDay" (change)="onDayChange()" class="form-control col-sm-10"  id="sel1">
+              <option selected disabled value="null">Day</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+            </select>
+          </div>
+          <!-- <button type="button" class="btn btn-soft-secondary mr4 btn-sm" (change)="getRevenue('today')">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="today_revenue" id="today_revenue"
+                [checked]="today_revenue_check" value="today" />
+              <label class="form-check-label" for="today_revenue">Today</label>
+            </div>
+          </button>
+          <button type="button" class="btn btn-soft-secondary mr4 btn-sm" (change)="getRevenue('yesterday')">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="revenueRadio" id="revenueRadio1"
+                [checked]="first_radio_Check" value="yesterday" />
+              <label class="form-check-label" for="revenueRadio1">Yesterday</label>
+            </div>
+          </button> -->
+
+          <div class="form-group selectbox special mr4 select_drop">
+            <select [(ngModel)]="monthlySelectedList" (change)="getRevenue('monthly')" class="form-control col-sm-10"
+              id="sel1">
+              <option selected value="null">Month</option>
+              <option *ngFor="let option of totalMonthForFilter" [value]="option.key">
+                {{ option.value }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group selectbox special mr4 select_drop">
+            <select [(ngModel)]="yearlySelectedList" (change)="getRevenue('total')" class="form-control col-sm-10"
+              id="sel1">
+              <option selected value="null">Year</option>
+              <option *ngFor="let option of totalYearForFilter" [value]="option">
+                {{ option }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div [chart]="planChart" *ngIf="planChart; else dataNotFound"></div>
+      <ng-template #dataNotFound>
+        <div class="text-center mt-4">Data Not Found</div>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,768 @@
+// /* You can add global styles to this file, and also import other style files */
+// .loader{width: 100%;
+//     height: 100%;
+//     top: 0;
+//     left: 0;
+//     position: fixed;
+//     display: block;
+//     z-index: 99;
+//     text-align: center;
+//     background: rgb(69 69 69 / 63%);
+//     }
+
+//    .load-icon{position:fixed; top:0; left:0; right:0; bottom:0; margin:auto; height: 50px; width: 50px; z-index: 9999; color: #fff;}
+//    .load-icon i{font-size:50px; color: #fff;}
+//  @-webkit-keyframes spin{
+//  0% {-webkit-transform: rotate(0);transform: rotate(0)}
+//  100%{-webkit-transform: rotate(359deg);transform: rotate(359deg)}
+//  }
+//  @keyframes spin {
+//  0%{-webkit-transform: rotate(0);transform: rotate(0)}
+//  100%{-webkit-transform: rotate(359deg);transform: rotate(359deg)}
+//  }
+//  .faa-spin.animated{-webkit-animation: spin 1.5s linear infinite;animation: spin 1.5s linear infinite}
+// @import "primeng/resources/themes/lara-light-blue/theme.css";
+// @import "primeng/resources/primeng.css";
+// @import "primeicons/primeicons.css";
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // z-index: 99;
+  // background: #4040403d;
+  background: rgb(255 255 255 / 93%);
+}
+
+.lds-facebook {
+  // display: inline-block;
+  position: relative;
+  // width: 80px;
+  // height: 80px;
+  z-index: 1;
+}
+
+.lds-facebook img {
+  z-index: 1;
+  width: 130px;
+  height: auto;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+// .lds-facebook div {
+//   display: inline-block;
+//   position: absolute;
+//   left: 8px;
+//   width: 16px;
+//   background: #28a833;
+//   animation: lds-facebook 0.5s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+// }
+// .lds-facebook div:nth-child(1) {
+//   left: 8px;
+//   animation-delay: -0.2s;
+// }
+
+// .lds-facebook div:nth-child(2) {
+//   left: 32px;
+//   animation-delay: -0.15s;
+// }
+// .lds-facebook div:nth-child(3) {
+//   left: 56px;
+//   animation-delay: -0.1;
+// }
+// .lds-facebook div:nth-child(4) {
+//   left: 80px;
+//   animation-delay: -0.5;
+// }
+// .lds-facebook div:nth-child(5) {
+//   left: 90px;
+//   animation-delay: 0;
+// }
+// @keyframes lds-facebook {
+//   0% {
+//     top: 8px;
+//     height: 64px;
+//   }
+//   50%,
+//   100% {
+//     top: 24px;
+//     height: 32px;
+//   }
+// }
+
+// for chart display styles
+header .bg-soft-light {
+  background: none !important;
+  border-right: none !important;
+}
+
+.display {
+  display: inline;
+  padding-left: inherit;
+}
+
+.selectbox {
+  display: inline-block;
+}
+
+.card-header-size {
+  height: fit-content;
+}
+
+.special .form-control {
+  // width: 60px;
+  // padding: 0.27rem 0.25rem !important;
+  padding: 0.27rem 0.7rem 0.27rem 0.2rem !important;
+
+}
+
+.btnBox .mr4 {
+  margin-right: 5px;
+}
+
+.selectType,
+.selectType .form-control,
+.display.btnBox .selectType.width {
+  width: auto !important;
+}
+
+.card-header h4 {
+  display: block !important;
+  padding-bottom: 17px !important;
+  font-size: 14px !important;
+}
+
+.display {
+  display: inline;
+  padding-left: inherit;
+  float: right;
+}
+
+.btnBox .btn-soft-secondary {
+  padding: 0.25rem !important;
+}
+
+.btnBox .btn-soft-secondary .form-check-inline {
+  margin-right: 0 !important;
+}
+
+.pad {
+  padding: 20px;
+}
+
+.active {
+  color: var(--bs-sidebar-menu-item-active-color) !important;
+  // color: blue !important;
+}
+
+.comingSoon {
+  position: relative;
+}
+
+.comingSoon img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: .6;
+}
+
+.comingSoon .title {
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  color: #545a6d;
+}
+
+.auth-full-page-content {
+  min-height: auto;
+}
+
+/*----------------------css----------------*/
+.logo-lg img {
+  width: 100px;
+  height: auto !important;
+  margin-left: -5px;
+}
+
+.logo-sm img {
+  width: 40px;
+  height: auto !important;
+  margin-left: -5px;
+}
+
+.vertical-menu {
+  background: #fff !important;
+}
+
+.topHeadGraph {
+  margin: -1.25rem -1.25rem 0 -1.25rem;
+  padding: 1rem 1.25rem !important;
+  background: rgb(247 247 247 / 89%) !important;
+  border-bottom: none !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topHeadList {
+  background: rgb(247 247 247 / 89%) !important;
+  border-bottom: none !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 7px !important;
+}
+
+.mr4 {
+  margin-right: 15px;
+}
+
+.dashGraph .card-header {
+  background: rgb(247 247 247 / 89%) !important;
+}
+
+.topHeadGraph h4,
+.topHeadList h4 {
+  padding-bottom: 0 !important;
+}
+
+.dashBox .text-muted {
+  color: #2c302e !important;
+}
+
+.dashBox .card-body {
+  padding: 12px;
+}
+
+.dashBox .card-body h6 {
+  color: #313533;
+}
+
+body[data-sidebar="dark"] .vertical-menu,
+body[data-sidebar="dark"] .card .card-header,
+body[data-layout-mode="dark"] .highcharts-background {
+  background: var(--bs-sidebar-dark-bg) !important;
+}
+
+body[data-layout-mode="dark"] .highcharts-legend-box {
+  fill: #2c302e;
+}
+
+body[data-layout-mode="dark"] .highcharts-background {
+  fill: #313533 !important;
+}
+
+// body[data-layout-mode="dark"] .highcharts-label tspan,
+// body[data-layout-mode="dark"] .highcharts-label text {
+//   fill: #fff !important;
+//   color: #fff !important;
+// }
+body[data-layout-mode="dark"] .highcharts-label tspan,
+body[data-layout-mode="dark"] .highcharts-label text,
+body[data-layout-mode="dark"] .highcharts-legend-item text {
+  color: #99a4b1 !important;
+  fill: #99a4b1 !important;
+}
+
+body[data-layout-mode="dark"] .highcharts-label text {
+  font-weight: 400 !important;
+}
+
+body[data-layout-mode="dark"] .highcharts-text-outline {
+  stroke: none;
+  fill: none;
+  color: #fff;
+}
+
+body[data-layout-mode="dark"] .dashBox .text-muted {
+  color: rgb(173 181 189 / 75%) !important;
+}
+
+body[data-layout-mode="dark"] .dashBox .card-body h6 {
+  color: #ced4da;
+}
+
+body[data-sidebar-size="sm"] .vertical-menu #sidebar-menu>ul>li .sub-menu {
+  white-space: normal !important;
+}
+
+.listCountWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.highcharts-container,
+.highcharts-container .highcharts-root {
+  width: 100% !important;
+  margin: auto !important;
+}
+
+#sidebar-menu ul li a {
+  display: flex !important;
+  font-size: 14px !important;
+  align-items: flex-start;
+  border-bottom: 1px solid #f8f6f6;
+  padding: 0.9rem 1.5rem;
+}
+
+#sidebar-menu ul li ul.sub-menu li a {
+  font-size: 13px !important;
+}
+
+#sidebar-menu li .active {
+  font-weight: 600;
+  font-size: 15px !important;
+}
+
+.graphCard {
+  min-height: 475px;
+}
+
+.display.btnBox {
+  padding-left: 5px;
+}
+
+.display.btnBox .selectbox.width {
+  width: 60px !important;
+}
+
+.leftNav-icon {
+  width: 18px;
+  margin-right: 15px;
+}
+
+.sidebar-enable .leftNav-icon {
+  margin-right: 0;
+}
+
+body[data-sidebar-size="sm"] .vertical-menu #sidebar-menu>ul>li>a {
+  align-items: center;
+  line-height: 1;
+}
+
+.auth-page #reviewcarouselIndicators .carousel-indicators {
+  bottom: -26px;
+}
+
+#sidebar-menu .has-arrow:after {
+  position: absolute;
+  right: 15px;
+}
+
+.animate-charcter {
+  // animation: textclip 2s linear infinite;
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 110px auto;
+  color: #545a6d;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  width: 70%;
+}
+
+.emailText a {
+  border-bottom: 2px solid #5156be;
+}
+
+.emailText a:hover {
+  background-image: linear-gradient(179deg, #51979a 0%, #83aca6 29%, #66bc45 67%, #59ab3a 100%);
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid #66bc45;
+}
+
+.header-profile-user {
+  background-color: #fff !important;
+}
+
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+#pagination {
+  display: flex;
+  justify-content: right;
+}
+
+.hideondesktop {
+  display: none;
+}
+
+.sidebar-enable .navbar-brand-box {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileDec,
+.profileDec li {
+  width: 100%;
+}
+
+.ng-otp-input-wrapper .otp-input {
+  font-size: 16px !important;
+}
+
+@media (max-width: 991px) {
+  .sidebar-enable .leftNav-icon {
+    margin-right: 15px !important;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .topHeadGraph,
+  .topHeadList,
+  .listCountWrapper {
+    display: block;
+  }
+
+  .graphCard {
+    min-height: inherit;
+  }
+
+}
+
+.auth-logo img {
+  width: 300px;
+  height: auto;
+}
+
+@media (max-width: 578px) {
+
+  .topHeadGraph h4,
+  .topHeadList h4 {
+    padding-bottom: 17px !important;
+    text-align: center;
+  }
+
+  .topHeadGraph,
+  .topHeadList,
+  .listCountWrapper {
+    display: block;
+    padding: 1em 0.5em !important;
+  }
+
+  .special .form-control,
+  .display.btnBox .selectbox.width {
+    width: 57px !important;
+  }
+
+  .lds-facebook img {
+    z-index: 1;
+    width: 80px;
+    position: inherit;
+  }
+
+  .display.btnBox .selectbox.special.mr4:last-child {
+    margin-right: 0 !important;
+  }
+
+  .comingSoon .title {
+    font-size: 22px !important;
+    width: 90%;
+  }
+
+  .display.btnBox,
+  .topHeadGraph .display {
+    float: none;
+  }
+
+  .logo {
+    line-height: 70;
+  }
+
+  .navbar-brand-box {
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .auth-full-page-content {
+    min-height: calc(100vh - 200px) !important;
+  }
+
+  .display.btnBox,
+  .topHeadList .display {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: none;
+  }
+
+  // #page-header-search-dropdown {
+  //   display: none;
+  // }
+
+  .comingSoon {
+    background-color: rgb(245 245 245 / 86%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .comingSoon img {
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .animate-charcter {
+    width: 80%;
+  }
+
+  .bxs-quote-alt-left {
+    display: none !important;
+  }
+
+  #reviewcarouselIndicators h4 {
+    font-size: 12px;
+    margin-top: 0 !important;
+  }
+
+  header .bg-soft-light {
+    background: none !important;
+  }
+
+  header .border-start {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  #vertical-menu-btn {
+    font-size: 25px !important;
+  }
+
+  .navbar-header .dropdown-menu-end.show {
+    left: auto !important;
+  }
+
+  .special .form-control,
+  .display.btnBox .selectbox.width {
+    width: auto !important;
+    min-width: 60px;
+  }
+
+  .topHeadList .count {
+    display: block;
+    text-align: center;
+  }
+
+  .hideondesktop {
+    display: block !important;
+  }
+
+  .hideondesktop .mt-4 {
+    margin-top: 0 !important;
+  }
+
+  .hideondesktop p {
+    padding: 8px 0;
+  }
+
+  // .mesageposinmob {
+  //   position: absolute !important;
+  //   bottom: 36px !important;
+  // }
+  // .hideondesktop {
+  //   position: absolute !important;
+  //   bottom: 6px !important;
+  // }
+  .copyright {
+    display: none !important;
+  }
+
+  // .loginEquelSpace {
+  //   justify-content: space-evenly;
+  // }
+
+  .auth-logo img {
+    width: 127px;
+    height: auto;
+  }
+
+  // .auth-content.my-auto {
+  //   margin-top: inherit !important;
+  //   margin-bottom: inherit !important;
+  //   min-height: 530px;
+  // }
+  .topHeadGraph h4,
+  .topHeadList h4 {
+    padding-bottom: 10px !important;
+    text-align: center;
+  }
+
+  // .special .form-control{padding: 0.27rem 0.25rem !important; font-size: 13px;}
+  .card-title {
+    text-align: center;
+  }
+
+  .mesageposinmob .carousel-item {
+    min-height: 140px;
+  }
+
+  .btnBox .mr4 {
+    margin-right: 3px;
+  }
+
+  .navbar-brand-box {
+    padding: 0 0.8rem !important;
+  }
+
+  #vertical-menu-btn {
+    margin-right: 10px !important;
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+  }
+
+  // body.sidebar-enable .vertical-menu{width:100%;}
+}
+
+@media (min-width: 320px) {
+  .navbar-brand-box {
+    display: block !important;
+  }
+}
+
+
+// .select_drop {
+//   position: relative;
+//   display: inline-block;
+// }
+
+//   .dropdown-icon {
+//     position: absolute;
+//     right: 4px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     width: 0;
+//     height: 0;
+//     border-left: 4px solid transparent;
+//     border-right: 4px solid transparent;
+//     border-top: 4px solid #495057;
+//     cursor: pointer;
+
+// }
+
+// .select_drop:before {
+//   content: "";
+//   position: absolute;
+//   right: 4px;
+//   top: 14px;
+//   width: 0; 
+//   height: 0; 
+//   border-left: 4px solid transparent;
+//   border-right: 4px solid transparent;
+//   border-top: 4px solid #495057;
+//   cursor: pointer;
+// }
+
+
+// .dropdown:after {
+//   content: "";
+//   position: absolute;
+//   right: 10px;
+//   top: 3px;
+//   width: 0; 
+//   height: 0; 
+//   border-left: 5px solid transparent;
+//   border-right: 5px solid transparent;
+//   border-top: 5px solid #333;
+// }
+
+td {
+  white-space: nowrap;
+}
+
+td span {
+  white-space:pre-line;
+}
+
+
+.select_drop {
+  position: relative;
+  display: inline-block;
+
+  :before {
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: 14px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #495057;
+    cursor: pointer;
+    
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 13px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #333;
+    pointer-events: none;
+    transition: .2s ease;
+    transform: rotateX(.5turn) translateY(2px);
+  }
+
+  .select_drop.clicked::after {
+    transform: rotateX(.3turn) translateY(2px);
+  }
+
+ 
+
+ 
+
+  // select {
+  //   &:click {
+  //     outline: unset;
+  //   }
+
+  //   >option:first-child {
+  //     display: none;
+  //   }
+  // }
+}
+
+
+
+
+/*----------------------css----------------*/

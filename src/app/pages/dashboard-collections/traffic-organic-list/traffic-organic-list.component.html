@@ -1,0 +1,164 @@
+<div class="col-xl-12" *ngIf="showHtmlChart">
+    <div class="card">
+        <div class="card-header topHeadList">
+            <h4 class="card-title">Traffic Distribution ({{selectedType != 'null' ? (selectedType | titlecase):'All'}}) - {{date_title | titlecase}}</h4>
+            <span class="count">Count : <strong>{{count}}</strong></span>&nbsp;
+            <div class="display">
+                <!-- <button class="btn btn-light selectbox" (click)="generatePDF()">Pdf downlaod</button>
+                &nbsp;&nbsp; -->
+                <button class="btn btn-light selectbox" (click)="BacktoDash()">Back</button>&nbsp;
+                <button class="btn btn-light selectbox" (click)="exportexcel()">Export to Excel</button>&nbsp;
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="layout">
+                    
+                    
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="selectedDay" (change)="toggleFilter('day')" class="form-control col-sm-10"
+                            id="sel1">
+                            <option selected value="null">Day</option>
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="selectedMonth" (change)="toggleFilter('month')"
+                            class="form-control col-sm-10" id="sel1">
+                            <option selected value="null">Month</option>
+                            <option *ngFor="let data of Month_names" [value]="data.name">{{data.name}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="selectedYear" (change)="toggleFilter('year')"
+                            class="form-control col-sm-10" id="sel1">
+                            <option selected disabled value="null">Year</option>
+                            <option *ngFor="let data of totalYearForFilter" [value]="data">{{data}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group selectbox special mr4 select_drop">
+                        <select [(ngModel)]="selectedType" (change)="toggleFilter('type')"
+                            class="form-control col-sm-10" id="sel1">
+                            <option selected disabled value="null">Type</option>
+                            <option value="Affiliate">Affiliate</option>
+                            <option value="Organic">Organic</option>
+                            
+                        </select>
+                    </div>
+                    <button class="btn btn-light selectbox" (click)="Reset()">Reset</button>&nbsp;
+                    <div class="page-records">
+                        <div class="form-group selectbox special">
+                            <h6 style="margin-top: 5px;">Per Page Record:</h6>
+                        </div>
+                        <div class="form-group selectbox special mr4 select_drop" style="float: right;">
+                            <!-- <h6>Per Page Record:</h6> -->
+                            <select #selectedperPage (change)="itemPerPage(selectedperPage.value)"
+                                class="form-control col-sm-10">
+                                <option selected value="1000">1000</option>
+                                <option value="2000">2000</option>
+                                <option value="3000">3000</option>
+                                <option value="4000">4000</option>
+                                <option value="5000">5000</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                 <table class="table mb-0" id="excel-table" *ngIf="isAffiliate">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-center">S.No</th>
+                            <!-- <th class="text-center">Latitude <i (click)="sort('latitude')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Longitude <i (click)="sort('longitude')" class="fa fa-sort"></i></th> -->
+                            <th class="text-center">Affiliate Name <i (click)="sort('Affiliate_Name')" class="fa fa-sort"></i></th>
+                            <!-- <th class="text-center">last Name</th> -->
+                            <th class="text-center">Source Name <i (click)="sort('Source_Name')" class="fa fa-sort"></i></th>
+                             <th class="text-center">Campaign Name <i (click)="sort('campaignName')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Ip Address <i (click)="sort('ipAddress')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Country Code <i (click)="sort('countryCode')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Created On <i (click)="sort('createdOn')" class="fa fa-sort"></i></th>
+
+
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of $table | paginate:{itemsPerPage: itemsPerPageC, currentPage:p};let i=index; ">
+                            <td class="text-center" scope="row">{{(p - 1) * itemsPerPageC + i + 1}}</td>
+                            <!-- <td class="text-center">{{data?.latitude?data?.latitude:'N.A'}}</td>
+                            <td class="text-center">{{data?.longitude?data?.longitude:'N.A'}}</td> -->
+                            <td class="text-center">{{data.Affiliate_Name}}</td>
+                            <!-- <td class="text-center">{{data.lastName}}</td> -->
+                            <td class="text-center">{{data.Source_Name}}</td>
+                            <td class="text-center">{{data?.campaignName?data?.campaignName:'N.A'}}</td>
+                            <td class="text-center">{{data.ipAddress}}</td>
+                            <td class="text-center">{{data.countryCode}}</td>
+                            <td class="text-center" scope="row">{{data.createdOn?(data.createdOn  | date : 'dd-MM-yyyy h:mm a'):'N.A'}}</td>
+                            
+
+                            
+                        </tr>
+                        <tr *ngIf="$table.length <= 0">
+                            <td colspan="7" style="text-align: center; color:rgb(143, 71, 71);">Records Not Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table mb-0" id="excel-table"  *ngIf = "!isAffiliate">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-center">S.No</th>
+                            <!-- <th class="text-center">Affiliate Name</th> -->
+                            <!-- <th class="text-center">last Name</th> -->
+                            <!-- <th class="text-center">Platform</th> -->
+                            <th class="text-center">Latitude <i (click)="sort('latitude')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Longitude <i (click)="sort('longitude')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Campaign Name <i (click)="sort('campaignName')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Ip Address <i (click)="sort('ipAddress')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Location <i (click)="sort('location')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Country Code <i (click)="sort('countryCode')" class="fa fa-sort"></i></th>
+                            <th class="text-center">Created On <i (click)="sort('createdOn')" class="fa fa-sort"></i></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr *ngFor="let data of $table | paginate:{itemsPerPage: itemsPerPageC, currentPage:p};let i=index;">
+                            <td class="text-center" scope="row">{{(p - 1) * itemsPerPageC + i + 1}}</td>
+                            <!-- <td class="text-center">{{data.Source_Name}}</td> -->
+                            <!-- <td class="text-center">{{data.lastName}}</td> -->
+                            <!-- <td class="text-center">{{data.Source_Name}}</td> -->
+                            <!-- <td class="text-center">{{data.affiliateId}}</td> -->
+                            <td class="text-center">{{data?.latitude?data?.latitude:'N.A'}}</td>
+                            <td class="text-center">{{data?.longitude?data?.latitude:'N.A'}}</td>
+                            <td class="text-center">{{data?.campaignName?data?.campaignName:'N.A'}}</td>
+                            <td class="text-center">{{data.ipAddress}}</td>
+                            <td class="text-center" scope="row">{{data?.location ? data?.location : 'N.A'}}</td>
+                            <td class="text-center">{{data?.countryCode ? data?.countryCode : 'N.A'}}</td>
+                            <td class="text-center">{{data?.createdOn ? (data?.createdOn | date:'dd-MM-yyyy h:mm a'):'N.A'}}</td>
+
+                        </tr>
+                        <tr *ngIf="$table.length <= 0">
+                            <td colspan="7" style="text-align: center; color:rgb(143, 71, 71);">Records Not Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+                    
+            </div>
+            <div *ngIf="$table.length>0" id="pagination" class="mt-2">
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="loader-container" *ngIf="!showHtmlChart">
+    <div class="lds-facebook">
+        <img src="assets/images/whiteBgLoader.gif" />
+    </div>
+</div>
+

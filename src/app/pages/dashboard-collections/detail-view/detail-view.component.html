@@ -1,0 +1,188 @@
+<div class="row">
+  <div class="col-xl-3 col-md-6">
+    <!-- card -->
+    <div class="card card-h-100">
+      <!-- card body -->
+      <div class="card-body">
+        <div class="row align-items-center">
+          <span class="text-muted d-block text-truncate"
+            >Total Revenue</span
+          >
+          <div class="col-5">
+            <h6>
+              <span>0</span>
+            </h6>
+          </div>
+
+          <div class="col-7">
+            <div [chart]="line_revenue_chart" class="chart"></div>
+          </div>
+        </div>
+        <div class="text-nowrap">
+          <span
+            class="badge"
+            [ngClass]="
+              _movement_revenue > 0
+                ? 'bg-soft-success text-success'
+                : 'bg-soft-danger text-danger'
+            "
+            >0
+          </span>
+          <span class="ms-1 text-muted font-size-13">Since last week</span>
+        </div>
+      </div>
+      <!-- end card body -->
+    </div>
+    <!-- end card -->
+  </div>
+  <!-- end col -->
+
+  <div class="col-xl-3 col-md-6">
+    <!-- card -->
+    <div class="card card-h-100">
+      <!-- card body -->
+      <div class="card-body">
+        <div class="row align-items-center">
+          <span class="text-muted d-block text-truncate"
+            >No. of Landing</span
+          >
+          <div class="col-5">
+            <h6>
+              <span
+                *ngIf="$total_landing_count; else landingCountNotFound"
+                [CountTo]="$total_landing_count"
+                class="counter-value"
+                [from]="0"
+                [duration]="1"
+              ></span>
+              <ng-template #landingCountNotFound><span>0</span></ng-template>
+            </h6>
+            <!-- <h4 class="mb-3"> -->
+            <!-- <h5> <span [CountTo]="$total_landing_count" class="counter-value" [from]="0" [duration]="1"></span></h5> -->
+            <!-- </h4> -->
+          </div>
+          <div class="col-7">
+            <!-- <apx-chart class="apex-charts" dir="ltr" [series]="tradeslineChart.series"
+                            [chart]="tradeslineChart.chart" [colors]="tradeslineChart.colors"
+                            [stroke]="tradeslineChart.stroke" [tooltip]="tradeslineChart.tooltip">
+                        </apx-chart> -->
+            <div [chart]="lineHighChart" class="chart"></div>
+          </div>
+        </div>
+        <div class="text-nowrap">
+          <span
+            class="badge"
+            [ngClass]="
+              _movement_landing > 0
+                ? 'bg-soft-success text-success'
+                : 'bg-soft-danger text-danger'
+            "
+            >0 landings</span
+          >
+          <span class="ms-1 text-muted font-size-13">Since last week</span>
+        </div>
+      </div>
+      <!-- end card body -->
+    </div>
+    <!-- end card -->
+  </div>
+  <!-- end col-->
+
+  <div class="col-xl-3 col-md-6">
+    <!-- card -->
+    <div class="card card-h-100">
+      <!-- card body -->
+      <div class="card-body">
+        <div class="row align-items-center">
+          <span class="text-muted d-block text-truncate"
+            >No. of Conversion</span
+          >
+
+          <div class="col-5">
+            <h6>
+              <span
+                *ngIf="$total_conversion_count; else conversionCountNotFound"
+                [CountTo]="$total_conversion_count"
+                class="counter-value"
+                [from]="0"
+                [duration]="1"
+              ></span>
+              <ng-template #conversionCountNotFound><span>0</span></ng-template>
+            </h6>
+          </div>
+          <div class="col-7">
+            <!-- <apx-chart class="apex-charts" dir="ltr" [series]="investedlineChart.series"
+                            [chart]="investedlineChart.chart" [colors]="investedlineChart.colors"
+                            [stroke]="investedlineChart.stroke" [tooltip]="investedlineChart.tooltip">
+                        </apx-chart> -->
+            <div [chart]="line_conversion_chart" class="chart"></div>
+          </div>
+        </div>
+        <div class="text-nowrap">
+          <span
+            class="badge"
+            [ngClass]="
+              _movement_conversion > 0
+                ? 'bg-soft-success text-success'
+                : 'bg-soft-danger text-danger'
+            "
+            >0 conversions</span
+          >
+          <span class="ms-1 text-muted font-size-13">Since last week</span>
+        </div>
+      </div>
+      <!-- end card body -->
+    </div>
+    <!-- end card -->
+  </div>
+  <!-- end col -->
+
+  <div class="col-xl-3 col-md-6">
+    <!-- card -->
+    <div class="card card-h-100">
+      <!-- card body -->
+      <div class="card-body">
+        <div class="row align-items-center">
+          <span class="text-muted d-block text-truncate"
+            >Conversion %</span
+          >
+          <div class="col-5">
+            <h6>
+              <span
+                *ngIf="$total_conversion_percentage; else conversionPercentageNotFound"
+                [CountTo]="$total_conversion_percentage"
+                class="counter-value"
+                [from]="0"
+                [duration]="1"
+              ></span>
+              <ng-template #conversionPercentageNotFound><span>0</span></ng-template>%
+            </h6>
+          </div>
+          <div class="col-7">
+            <!-- <apx-chart class="apex-charts" dir="ltr" [series]="profitlineChart.series"
+                            [chart]="profitlineChart.chart" [colors]="profitlineChart.colors"
+                            [stroke]="profitlineChart.stroke" [tooltip]="profitlineChart.tooltip">
+                        </apx-chart> -->
+            <div [chart]="line_conversion_percentage_chart" class="chart"></div>
+          </div>
+        </div>
+        <div class="text-nowrap">
+          <span
+            class="badge"
+            [ngClass]="
+              _movement_conv_percentage > 0
+                ? 'bg-soft-success text-success'
+                : 'bg-soft-danger text-danger'
+            "
+            >0</span
+          >
+          <span class="ms-1 text-muted font-size-13">Since last week</span>
+        </div>
+      </div>
+      <!-- end card body -->
+    </div>
+    <!-- end card -->
+  </div>
+  <!-- end col -->
+</div>
+<!-- end row-->

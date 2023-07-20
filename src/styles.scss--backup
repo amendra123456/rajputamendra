@@ -1,0 +1,478 @@
+// /* You can add global styles to this file, and also import other style files */
+// .loader{width: 100%;
+//     height: 100%;
+//     top: 0;
+//     left: 0;
+//     position: fixed;
+//     display: block;
+//     z-index: 99;
+//     text-align: center;
+//     background: rgb(69 69 69 / 63%);
+//     }
+
+//    .load-icon{position:fixed; top:0; left:0; right:0; bottom:0; margin:auto; height: 50px; width: 50px; z-index: 9999; color: #fff;}
+//    .load-icon i{font-size:50px; color: #fff;}
+//  @-webkit-keyframes spin{
+//  0% {-webkit-transform: rotate(0);transform: rotate(0)}
+//  100%{-webkit-transform: rotate(359deg);transform: rotate(359deg)}
+//  }
+//  @keyframes spin {
+//  0%{-webkit-transform: rotate(0);transform: rotate(0)}
+//  100%{-webkit-transform: rotate(359deg);transform: rotate(359deg)}
+//  }
+//  .faa-spin.animated{-webkit-animation: spin 1.5s linear infinite;animation: spin 1.5s linear infinite}
+// @import "primeng/resources/themes/lara-light-blue/theme.css";
+// @import "primeng/resources/primeng.css";
+// @import "primeicons/primeicons.css";
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // z-index: 99;
+  // background: #4040403d;
+  background: rgb(255 255 255 / 93%);
+}
+
+.lds-facebook {
+  // display: inline-block;
+  position: relative;
+  // width: 80px;
+  // height: 80px;
+  z-index: 1;
+}
+
+.lds-facebook img {
+  z-index: 1;
+  width: 130px;
+  height: auto;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+// .lds-facebook div {
+//   display: inline-block;
+//   position: absolute;
+//   left: 8px;
+//   width: 16px;
+//   background: #28a833;
+//   animation: lds-facebook 0.5s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+// }
+// .lds-facebook div:nth-child(1) {
+//   left: 8px;
+//   animation-delay: -0.2s;
+// }
+
+// .lds-facebook div:nth-child(2) {
+//   left: 32px;
+//   animation-delay: -0.15s;
+// }
+// .lds-facebook div:nth-child(3) {
+//   left: 56px;
+//   animation-delay: -0.1;
+// }
+// .lds-facebook div:nth-child(4) {
+//   left: 80px;
+//   animation-delay: -0.5;
+// }
+// .lds-facebook div:nth-child(5) {
+//   left: 90px;
+//   animation-delay: 0;
+// }
+// @keyframes lds-facebook {
+//   0% {
+//     top: 8px;
+//     height: 64px;
+//   }
+//   50%,
+//   100% {
+//     top: 24px;
+//     height: 32px;
+//   }
+// }
+
+// for chart display styles
+header .bg-soft-light {
+  background: none !important;
+  border-right: none !important;
+}
+
+.display {
+  display: inline;
+  padding-left: inherit;
+}
+
+.selectbox {
+  display: inline-block;
+}
+
+.card-header-size {
+  height: fit-content;
+}
+
+.special .form-control {
+  width: 60px;
+  padding: 0.27rem 0.55rem !important;
+}
+
+.card-header h4 {
+  display: block !important;
+  padding-bottom: 17px !important;
+  font-size: 14px !important;
+}
+
+.display {
+  display: inline;
+  padding-left: inherit;
+  float: right;
+}
+
+.btnBox .btn-soft-secondary {
+  padding: 0.25rem !important;
+}
+
+.btnBox .btn-soft-secondary .form-check-inline {
+  margin-right: 0 !important;
+}
+
+.pad {
+  padding: 20px;
+}
+
+.active {
+  color: var(--bs-sidebar-menu-item-active-color) !important;
+  // color: blue !important;
+}
+
+.comingSoon {
+  position: relative;
+}
+
+.comingSoon img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.comingSoon .title {
+  font-size: 50px;
+  font-weight: 600;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-full-page-content {
+  min-height: auto;
+}
+
+/*----------------------css----------------*/
+.logo-lg img {
+  width: 100px;
+  height: auto !important;
+  margin-left: -5px;
+}
+
+.logo-sm img {
+  width: 40px;
+  height: auto !important;
+  margin-left: -5px;
+}
+
+.vertical-menu {
+  background: #fff !important;
+}
+
+.topHeadGraph {
+  margin: -1.25rem -1.25rem 0 -1.25rem;
+  padding: 1rem 1.25rem !important;
+  background: rgb(247 247 247 / 89%) !important;
+  border-bottom: none !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topHeadList {
+  background: rgb(247 247 247 / 89%) !important;
+  border-bottom: none !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em !important;
+}
+
+.mr4 {
+  margin-right: 15px;
+}
+
+.dashGraph .card-header {
+  background: rgb(247 247 247 / 89%) !important;
+}
+
+.topHeadGraph h4,
+.topHeadList h4 {
+  padding-bottom: 0 !important;
+}
+
+body[data-sidebar="dark"] .vertical-menu,
+body[data-sidebar="dark"] .card .card-header {
+  background: var(--bs-sidebar-dark-bg) !important;
+}
+
+body[data-sidebar-size="sm"] .vertical-menu #sidebar-menu>ul>li .sub-menu {
+  white-space: normal !important;
+}
+
+.listCountWrapper {
+  display: flex;
+  align-items: center;
+}
+
+#sidebar-menu ul li a {
+  display: flex !important;
+  font-size: 14px !important;
+  align-items: flex-start;
+  border-bottom: 1px solid #f8f6f6;
+  padding: 0.9rem 1.5rem;
+}
+
+.graphCard {
+  min-height: 475px;
+}
+
+.display.btnBox {
+  padding-left: 10px;
+}
+
+.display.btnBox .selectbox.width {
+  width: 60px !important;
+}
+
+.leftNav-icon {
+  width: 18px;
+  margin-right: 15px;
+}
+
+.auth-page #reviewcarouselIndicators .carousel-indicators {
+  bottom: -26px;
+}
+
+#sidebar-menu .has-arrow:after {
+  position: absolute;
+  right: 15px;
+}
+
+.animate-charcter {
+  background-image: linear-gradient(-225deg,
+      #51979a 0%,
+      #83aca6 29%,
+      #66bc45 67%,
+      #66bc45 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 110px auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+#pagination {
+  display: flex;
+  justify-content: right;
+}
+
+
+@media (max-width: 767px) {
+
+  .topHeadGraph,
+  .topHeadList,
+  .listCountWrapper {
+    display: block;
+  }
+
+  .graphCard {
+    min-height: inherit;
+  }
+
+  .hideMeonMobile {
+    // display: none !important;
+    position: fixed;
+    bottom: 0;
+  }
+  .copyright {
+    display: none !important;
+  }
+}
+
+@media (max-width: 578px) {
+
+  .topHeadGraph h4,
+  .topHeadList h4 {
+    padding-bottom: 17px !important;
+    text-align: center;
+  }
+
+  .topHeadGraph,
+  .topHeadList,
+  .listCountWrapper {
+    display: block;
+    padding: 1em 0.5em !important;
+  }
+
+  .special .form-control,
+  .display.btnBox .selectbox.width {
+    width: 57px !important;
+  }
+
+  .lds-facebook img {
+    z-index: 1;
+    width: 80px;
+    position: inherit;
+  }
+
+  .display.btnBox .selectbox.special.mr4:last-child {
+    margin-right: 0 !important;
+  }
+
+  .comingSoon .title {
+    font-size: 30px !important;
+  }
+
+  .display.btnBox,
+  .topHeadGraph .display {
+    float: none;
+  }
+
+  .logo {
+    line-height: 70;
+  }
+
+  .navbar-brand-box {
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .auth-full-page-content {
+    min-height: auto !important;
+  }
+
+  .display.btnBox,
+  .topHeadList .display {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: none;
+  }
+
+  #page-header-search-dropdown {
+    display: none;
+  }
+
+  .comingSoon {
+    background-color: rgb(245 245 245 / 86%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .comingSoon img {
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bxs-quote-alt-left {
+    display: none !important;
+  }
+
+  #reviewcarouselIndicators h4 {
+    font-size: 12px;
+    margin-top: 0 !important;
+  }
+
+  header .bg-soft-light {
+    background: none !important;
+  }
+
+  header .border-start {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  #vertical-menu-btn {
+    font-size: 25px !important;
+  }
+
+  .navbar-header .dropdown-menu-end.show {
+    left: auto !important;
+  }
+
+  .special .form-control,
+  .display.btnBox .selectbox.width {
+    width: auto !important;
+  }
+
+  .topHeadList .count {
+    display: block;
+    text-align: center;
+  }
+
+  .hideMeonMobile {
+    // display: none !important;
+    position: fixed;
+    bottom: 0;
+  }
+  .copyright {
+    display: none !important;
+  }
+
+}
+
+@media (min-width: 320px) {
+  .navbar-brand-box {
+    display: block !important;
+  }
+
+  .topHeadGraph h4,
+  .topHeadList h4 {
+    padding-bottom: 10px !important;
+    text-align: center;
+  }
+
+}
+
+/*----------------------css----------------*/
+.auth-logo img {
+  width: 126px;
+  height: auto;
+}

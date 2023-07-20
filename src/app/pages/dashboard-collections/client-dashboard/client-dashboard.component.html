@@ -1,0 +1,160 @@
+<!-- card pad -->
+<div class="">
+    <!-- <app-pagetitle title="Client Dashboard" [breadcrumbItems]="breadCrumbItems"></app-pagetitle> -->
+    <div>
+      <!-- <h2 style="font-size: 16.4px;" class="card-title">Client Dashboard</h2> -->
+    </div>
+    <div *ngIf="showHtml">
+        <div class="row mt-3">
+            <div class=" col-xl-12">
+                <div class="form-group selectbox">
+                    <!-- <label for="select">Client</label> -->
+                    <select [(ngModel)]="selectedClient" (change)="getSelectClient()" class="form-control col-sm-10"
+                        id="sel1">
+                        <!-- <i class="bx bx-x" style="float: right;">X</i> -->
+                        <option selected value="null">select client</option>
+                        <option *ngFor="let option of getCliensList;" [value]="option._id">{{option.name}}
+                        </option>
+                    </select>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-group selectbox" *ngIf="isCampaignShow">
+                    <!-- <label for="select">Client</label> -->
+                    <select [(ngModel)]="selectedCampaign" (change)="getSelectCampaign('total')" class="form-control col-sm-10"
+                        id="sel1">
+                        <!-- <i class="bx bx-x" style="float: right;">X</i> -->
+                        <option selected value="null">select campaign</option>
+                        <option *ngFor="let option of getCampaignList;" [value]="option.partnerId">
+                            {{option.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <!-- pie chart -->
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header card-header-size">
+                        <h4 style="font-size: 13.4px;" class="card-title mb-0">Campaign Count Details</h4>
+                            <div class="display" *ngIf="showOptions">
+                                <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="showDataFromCampaignCountChart('yesterday')">
+                                    <div class="form-check form-check-inline col-sm">
+                                        <input class="form-check-input" type="radio" name="campaincount1" id="campaincount1"
+                                            value="campaign_yesterday" [checked]="campaigncount1" >
+                                        <label class="form-check-label" for="campaincount1">Yesterday</label>
+                                    </div>
+                                </button>
+                                <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="showDataFromCampaignCountChart('monthly')">
+                                    <div class="form-check form-check-inline col-sm">
+                                        <input class="form-check-input" type="radio" name="campaincount2" id="campaincount2"
+                                            value="campaign_monthly" [checked]="campaigncount2"  >
+                                        <label class="form-check-label" for="campaincount2">Monthly</label>
+                                    </div>
+                                </button>
+                                <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="showDataFromCampaignCountChart('total')">
+                                    <div class="form-check form-check-inline col-sm">
+                                        <input class="form-check-input" type="radio" name="campaincount3" id="campaincount3"
+                                            value="campaign_total" [checked]="campaigncount3" >
+                                        <label class="form-check-label" for="campaincount3">Total</label>
+                                    </div>
+                                </button>
+        
+                            </div>
+                    </div>
+                    <div class="card-body" *ngIf="showPieChart">
+                        <canvas baseChart [labels]="pieChartData.labels" [datasets]="pieChartData.datasets" chartType="pie"
+                            [options]="pieChartData.options" height="260">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header card-header-size ">
+                        <h4 style="font-size: 13.4px;" class="card-title mb-0">Top 5 Campaign Details</h4>
+                        <div class="display" *ngIf="showOptions">
+                            <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="showDataFromTop5CampaignChart('yesterday')">
+                                <div class="form-check form-check-inline col-sm">
+                                    <input class="form-check-input" type="radio" name="top5campain1" id="top5campain1"
+                                        value="top5_yesterday" [checked]="top5campaign1">
+                                    <label class="form-check-label" for="top5campain1">Yesterday</label>
+                                </div>
+                            </button>
+                            <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="showDataFromTop5CampaignChart('monthly')">
+                                <div class="form-check form-check-inline col-sm">
+                                    <input class="form-check-input" type="radio" name="top5campain2" id="top5campain2"
+                                        value="top5_monthly" [checked]="top5campaign2"  >
+                                    <label class="form-check-label" for="top5campain2">Monthly</label>
+                                </div>
+                            </button>
+                            <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="showDataFromTop5CampaignChart('total')">
+                                <div class="form-check form-check-inline col-sm">
+                                    <input class="form-check-input" type="radio" name="top5campain3" id="top5campain3"
+                                        value="top5_total" [checked]="top5campaign3" >
+                                    <label class="form-check-label" for="top5campain3">Total</label>
+                                </div>
+                            </button>
+    
+                        </div>
+                    </div>
+                    <div class="card-body" *ngIf="showTop5Campaignchart">
+                        <canvas baseChart [datasets]="lineBarChart.datasets" chartType="bar"
+                            [options]="lineBarChart.options" height="415" [labels]="lineBarChart.labels">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 style="font-size: 13.4px;"  class="card-title mb-0">Conversion Revenue Expense Details</h4>
+                        <div class="display" *ngIf="showOptions">
+                            <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="getConversionRevenueExpenseApiCall('yesterday')">
+                                <div class="form-check form-check-inline col-sm">
+                                    <input class="form-check-input" type="radio" name="Conversion_revenue" id="Conversion_revenue1"
+                                        value="con_reV_exp_yesterday" [checked]="Conversion_revenue1" >
+                                    <label class="form-check-label" for="Conversion_revenue1">Yesterday</label>
+                                </div>
+                            </button>
+                            <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="getConversionRevenueExpenseApiCall('monthly')">
+                                <div class="form-check form-check-inline col-sm">
+                                    <input class="form-check-input" type="radio" name="Conversion_revenue1" id="Conversion_revenue2"
+                                        value="con_reV_exp__monthly" [checked]="Conversion_revenue2"  >
+                                    <label class="form-check-label" for="Conversion_revenue2">Monthly</label>
+                                </div>
+                            </button>
+                            <button type="button" class="btn btn-soft-secondary btn-sm ms-1" (change)="getConversionRevenueExpenseApiCall('total')">
+                                <div class="form-check form-check-inline col-sm">
+                                    <input class="form-check-input" type="radio" name="Conversion_revenue3" id="Conversion_revenue3"
+                                        value="con_reV_exp__total" [checked]="Conversion_revenue3" >
+                                    <label class="form-check-label" for="Conversion_revenue3">Total</label>
+                                </div>
+                            </button>
+    
+                        </div>
+                    </div>
+                    <div class="card-body" *ngIf="showCon_Rev_Exp">
+                        <apx-chart class="apex-charts" dir="ltr" id="myChart" [series]="lineWithDataChart.series"
+                            [chart]="lineWithDataChart.chart" [colors]="lineWithDataChart.colors"
+                            [stroke]="lineWithDataChart.stroke" [dataLabels]="lineWithDataChart.dataLabels"
+                            [title]="lineWithDataChart.title" [responsive]="lineWithDataChart.responsive"
+                            [legend]="lineWithDataChart.legend" [xaxis]="lineWithDataChart.xaxis"
+                            [yaxis]="lineWithDataChart.yaxis" [stroke]="lineWithDataChart.stroke"
+                            [markers]="lineWithDataChart.markers">
+                        </apx-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loader-container" *ngIf="!showHtml">
+        <div class="lds-facebook">
+            <img src="assets/images/whiteBgLoader.gif" />
+        </div>
+    </div>
+</div>
