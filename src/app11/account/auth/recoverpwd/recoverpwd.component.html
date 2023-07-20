@@ -1,0 +1,135 @@
+<div class="auth-page">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-xxl-3 col-lg-4 col-md-5">
+                <div class="auth-full-page-content d-flex p-sm-5 p-4">
+                    <div class="w-100">
+                        <div class="d-flex flex-column h-100 loginEquelSpace">
+                            <div class="mb-4 mb-md-5 text-center">
+                                <a routerLink="/" class="d-block auth-logo">
+                                    <img src="assets/images/latest_mfuel_logo_name.png" alt="" height="28"> 
+                                    <!-- <span class="logo-txt">M-Fuel</span> -->
+                                </a>
+                            </div>
+                            <div class="auth-content my-auto">
+                                <div class="text-center">
+                                    <h5 class="mb-0">Reset Password</h5>
+                                    <p class="text-muted mt-2">Reset Password with M-Fuel.</p>
+                                </div>
+                                <div class="alert alert-success text-center my-4" role="alert">
+                                    Enter your Email and instructions will be sent to you!
+                                </div>
+                                <form class="needs-validation" name="resetForm" [formGroup]="resetForm"
+                                    (ngSubmit)="onSubmit()" novalidate>
+
+                                    <div class="mb-3">
+                                        <label for="email">Email</label>
+
+                                        <input type="email" formControlName="email" class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email"
+                                            placeholder="Email" (keydown)="keydown($event)" maxlength="50" />
+
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <button class="btn btn-primary w-100 waves-effect waves-light"
+                                            type="submit">Reset</button>
+                                    </div>
+                                </form>
+
+                                <div class="mt-5 text-center">
+                                    <p class="text-muted mb-0">Remember It ? <a routerLink="/account/login"
+                                            class="text-primary fw-semibold"> Sign In </a> </p>
+                                </div>
+                            </div>
+                            <div class="mt-4 mt-md-5 text-center copyright">
+                                <p class="mb-0">©
+                                    {{year}} M-Fuel
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end auth full page content -->
+            </div>
+            <!-- end col -->
+            <div class="col-xxl-9 col-lg-8 col-md-7 mesageposinmob">
+                <div class="auth-bg pt-md-5 p-4 d-flex">
+                    <div class="bg-overlay bg-primary"></div>
+                    <ul class="bg-bubbles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <!-- end bubble effect -->
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-xl-7">
+                          <div class="p-0 p-sm-4 px-xl-0">
+                            <div id="reviewcarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-inner">
+                                <ngb-carousel [showNavigationArrows]="showNavigationArrows">
+                                  <ng-template ngbSlide>
+                                    <div class="carousel-item active">
+                                      <div class="testi-contain text-white">
+                                        <i class="bx bxs-quote-alt-left text-success display-6"></i>
+            
+                                        <h4 class="mt-4 fw-medium lh-base text-white">
+                                          “SSN brings to you an advanced toolkit in the world of Consumer Experience Management. We utilize our unique technology, IPBM, to decode and anticipate consumer behaviors in real-time using digital clones. By blending insights from psychology with sophisticated AI, we're revolutionizing how your brand connects with existing customers and discovers potential new ones.”
+                                        </h4>
+                                   
+                                      </div>
+                                    </div>
+                                  </ng-template>
+                                  <ng-template ngbSlide>
+                                    <div class="carousel-item active">
+                                      <div class="testi-contain text-white">
+                                        <i class="bx bxs-quote-alt-left text-success display-6"></i>
+            
+                                        <h4 class="mt-4 fw-medium lh-base text-white">
+                                          “Experience the Power of Our SAAS-Based Consumer Identity Management Platform. Fuel growth, drive personalization, and make data-driven decisions with confidence. Gain a competitive edge in today's dynamic market landscape.”
+                                        </h4>
+                                      
+                                      </div>
+                                    </div>
+                                  </ng-template>
+                                  <ng-template ngbSlide>
+                                    <div class="carousel-item active">
+                                      <div class="testi-contain text-white">
+                                        <i class="bx bxs-quote-alt-left text-success display-6"></i>
+            
+                                        <h4 class="mt-4 fw-medium lh-base text-white">
+                                          “Catalyse your market growth with M-Fuel, a comprehensive and integrated data analytics suite designed to streamline your marketing operations. With M-Fuel's centralized dashboard, you gain full control over your marketing data, from managing leads to tracking campaigns in real-time.”
+                                        </h4>
+                                     
+                                      </div>
+                                    </div>
+                                  </ng-template>
+                                </ngb-carousel>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-12 hideondesktop">
+              <div _ngcontent-bbr-c120="" class="mt-4 mt-md-5 text-center">
+                <p _ngcontent-bbr-c120="" class="mb-0">© {{year}} M-Fuel.</p>
+              </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container fluid -->
+</div>

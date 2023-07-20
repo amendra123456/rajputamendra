@@ -874,7 +874,13 @@ export class RootPageService {
     getCountOfNotification(){
       return this.http.s_get(this.base_url+this.alarmNotificationUrl+this.countnotification);
     }
-
-   
+   printReport(){
+    let newWin:any;
+    var divToPrint:any = document.getElementById("excel-table");  
+    newWin = window.open("");  
+    newWin.document.write(divToPrint.outerHTML);  
+    newWin.print();  
+    newWin.close(); 
+   }
 
 }

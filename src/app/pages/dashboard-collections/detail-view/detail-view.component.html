@@ -10,7 +10,7 @@
           >
           <div class="col-5">
             <h6>
-              <span>0</span>
+              <span>{{ $total_revenue_count }}</span>
             </h6>
           </div>
 
@@ -26,7 +26,7 @@
                 ? 'bg-soft-success text-success'
                 : 'bg-soft-danger text-danger'
             "
-            >0
+            >{{ _movement_revenue }}
           </span>
           <span class="ms-1 text-muted font-size-13">Since last week</span>
         </div>
@@ -77,7 +77,7 @@
                 ? 'bg-soft-success text-success'
                 : 'bg-soft-danger text-danger'
             "
-            >0 landings</span
+            >{{ _movement_landing }} landings</span
           >
           <span class="ms-1 text-muted font-size-13">Since last week</span>
         </div>
@@ -126,7 +126,7 @@
                 ? 'bg-soft-success text-success'
                 : 'bg-soft-danger text-danger'
             "
-            >0 conversions</span
+            >{{ _movement_conversion }} conversions</span
           >
           <span class="ms-1 text-muted font-size-13">Since last week</span>
         </div>
@@ -174,7 +174,7 @@
                 ? 'bg-soft-success text-success'
                 : 'bg-soft-danger text-danger'
             "
-            >0</span
+            >{{ _movement_conv_percentage }}</span
           >
           <span class="ms-1 text-muted font-size-13">Since last week</span>
         </div>

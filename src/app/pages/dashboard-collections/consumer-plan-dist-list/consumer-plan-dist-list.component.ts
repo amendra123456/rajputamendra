@@ -263,6 +263,9 @@ export class ConsumerPlanDistListComponent {
     autoTable(doc, { html: '#excel-table' })
     doc.save(`${this.basicData.category}-data-table.pdf`)
   }  
+  printReport():void{
+    this.service.printReport();
+  }
   displayAplianceName(data: any,val:any) {    
     this.ap_name = []
     data.map((x: any) => {

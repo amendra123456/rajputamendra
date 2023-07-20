@@ -1,0 +1,87 @@
+<div *ngIf="showHtmlChart">
+  <div>
+    <div class="card graphCard">
+      <div class="card-header topHeadList">
+        <h4 class="card-title mb-0">Top 5 Campaigns</h4>
+        <div class="display btnBox">
+          <div class="form-group selectbox special mr4 select_drop">
+            <select [(ngModel)]="selectedDay" (change)="onDayChange()" class="form-control col-sm-10"  id="sel1">
+              <option selected disabled value="null">Day</option>
+              <option value="today">Today</option>
+              <option value="yesterday">Yesterday</option>
+            </select>
+          </div>
+          <!-- <button type="button" class="btn btn-soft-secondary mr4 btn-sm" (change)="getToDayData()">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="today_campaign" id="today_campaign"
+                [checked]="today_campaign_Check" value="today" />
+              <label class="form-check-label" for="today_campaign">Today</label>
+            </div>
+          </button>
+          <button type="button" class="btn btn-soft-secondary mr4 btn-sm pb-4" (change)="daily_data()">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="top5CampaignRadio" id="top5CampaignRadio1"
+                [checked]="top5CampaignCheck1" value="yesterday" />
+              <label class="form-check-label" for="top5CampaignRadio1">Yesterday</label>
+            </div>
+          </button> -->
+          <!-- <button type="button" class="btn btn-soft-secondary
+                btn-sm ms-1" (change)="toggleWithTop5CampaignChart('monthly')">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="top5CampaignRadio" id="top5CampaignRadio2"
+                [checked]="top5CampaignCheck2" value="monthly">
+              <label class="form-check-label" for="top5CampaignRadio2">Monthly</label>
+            </div>
+          </button>
+          <button type="button" class="btn btn-soft-secondary
+                btn-sm ms-1" (change)="toggleWithTop5CampaignChart('total')">
+            <div class="form-check form-check-inline col-sm">
+              <input class="form-check-input" type="radio" name="top5CampaignRadio" id="top5CampaignRadio3"
+                [checked]="top5CampaignCheck3" value="total">
+              <label class="form-check-label" for="top5CampaignRadio3">Total</label>
+            </div>
+          </button> -->
+          <div class="form-group selectbox special width mr4 select_drop">
+            <select [(ngModel)]="selectedMonth" (change)="onMonthChange()" class="form-control col-sm-10" id="sel1">
+              <option selected value="null">Month</option>
+              <option *ngFor="let option of monthsList" [value]="option.key">
+                {{ option.value }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group selectbox special width mr4 select_drop">
+            <select [(ngModel)]="selectedYear" (change)="onYearChange()" class="form-control col-sm-10" id="sel1">
+              <option selected value="null">Year</option>
+              <option *ngFor="let option of yearsList" [value]="option">
+                {{ option }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group special selectbox selectType select_drop">
+            <select [(ngModel)]="selectedMatrics" (change)="getSelectedMatrics()" class="form-control col-sm-10"
+              id="sel1">
+              <option selected disabled value="null">Select Matrics</option>
+              <option value="STARTED">Active</option>
+              <option value="STOPPED">Suspended</option>
+              <option value="PAUSED">Hold</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card-body"> -->
+      <div>
+        <!-- <figure class="highcharts-figure"> -->
+        <div [chart]="barChartData" *ngIf="barChartData; else dataNotFound"></div>
+        <ng-template #dataNotFound>
+          <div class="text-center mt-4">Data Not Found</div>
+        </ng-template>
+        <!-- </figure> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="loader-container" *ngIf="!showHtmlChart">
+  <div class="lds-facebook">
+    <img src="assets/images/whiteBgLoader.gif" />
+  </div>
+</div>

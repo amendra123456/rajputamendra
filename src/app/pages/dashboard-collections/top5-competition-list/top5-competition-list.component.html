@@ -1,13 +1,13 @@
 <div class="col-xl-12" *ngIf="showHtmlChart">
     <div class="card">
         <div class="card-header topHeadList">
-            <h4 class="card-title">Top Five Competition ({{productName| titlecase}})-{{date_title}}</h4>
+            <h4 class="card-title">Top Five Competition ({{productName!='null'?(productName | titlecase):'All'}})-{{date_title}}</h4>
             <span class="count">Count : <strong>{{$table.length}}</strong></span>
             <!-- <span class="count">Count : <strong>{{campaignData.x_axis_data}}</strong></span>&nbsp; <span> Date :<strong> {{title_date}}</strong></span> -->
-            <div class="display">
-                <!-- <button class="btn btn-light selectbox" (click)="generatePDF()">Pdf downlaod</button>
-                &nbsp;&nbsp; -->
+            <div class="display">                
                 <button class="btn btn-light selectbox" (click)="BacktoDash()">Back</button>&nbsp;
+                <button class="btn btn-light selectbox" (click)="generatePDF()">Downlaod Pdf</button>&nbsp;
+                <button class="btn btn-light selectbox" (click)="printReport()">Print Report</button>&nbsp;
                 <button class="btn btn-light selectbox" (click)="exportexcel()">Export to Excel</button>&nbsp;
             </div>
 
@@ -107,7 +107,7 @@
                              <td class="text-center">{{data?.userDetail[0]?.city != '' ? data?.userDetail[0]?.city : 'N.A'}}</td>
                             <td class="text-center">{{data?.userDetail[0]?.userMetaData?(data?.userDetail[0]?.userMetaData[0]?.ipAddress ? data?.userDetail[0]?.userMetaData[0]?.ipAddress:'N.A'):'N.A'}}</td>
     
-                            <td class="text-center">{{data?.userDetail[0]?.userMetaData?(data?.userDetail[0]?.userMetaData[0]?.createdOn ? (data?.userDetail[0]?.userMetaData[0]?.createdOn | date:'dd-MM-yyyy h:mm a') :'N.A'):'N.A'}}</td>
+                            <td class="text-center">{{data?.availedOn?(data?.availedOn | date:'dd-MM-yyyy h:mm a') :'N.A'}}</td>
                             
                         </tr>
                         <tr *ngIf="$table?.length <= 0">

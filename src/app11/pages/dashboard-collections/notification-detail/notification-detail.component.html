@@ -1,0 +1,56 @@
+<!-- <div class="hhwtmainmenu px-4"
+    *ngFor="let content of AlarmNotificationData; let i=index; "
+  >
+  <div class="col-md-12 mb-4 font-size-13 text-muted row">
+    <div>
+        <h6>Hi YBC,</h6>
+        You have received a call back request from the user with details below.<br>
+        <strong>User Name:</strong> {{content.firstName}}&nbsp;{{content.lastName}}<br>
+        <strong>Phone number:</strong> {{content.phoneNo}}
+    </div>
+    <div class="col-md-12">
+        <p class="mb-0"><i class="mdi mdi-clock-outline"></i>
+            <span>{{content.timeValue}}&nbsp;&nbsp;{{content.timeKey}}</span>&nbsp;ago
+        </p>
+    </div>
+    
+    
+</div>
+</div> -->
+<div *ngIf="showHtml">
+    <h6 class="text-center">All Notifications</h6>
+    <li *ngFor="let content of AlarmNotificationData">
+        <a href="javascript:void(0);" class="text-reset notification-item">
+            <div class="d-flex">
+                <div class="flex-shrink-0 me-3" >
+                    <img src="https://encashv2-assets.s3.eu-west-1.amazonaws.com/m-fuel/1684922811874/1684922811874-image.ico"
+                        class="rounded-circle avatar-sm" alt="user-pic">
+                </div>
+                <div class="flex-grow-1">
+                    <a href="https://www.encashoffers.com">
+                        <h6 class="mb-1">Encashoffers</h6>
+                    </a>
+                    <div class="font-size-13 text-muted">
+                        <!-- <p class="mb-1">{{ 'HEADER.NOTIFICATIONS.FIRST.TEXT' | translate}}</p> -->
+                        <p class="mb-1">Hi YBC,<br />
+        
+                            You have received a call back request from the user with details below.<br />
+                            User Name: {{content.firstName}}&nbsp;{{content.lastName}} &nbsp; <br /> 
+                            <strong> Phone number:</strong>{{content.phoneNo}}</p>
+                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i>
+                            <span>{{content.timeValue}}&nbsp;&nbsp;{{content.timeKey}}</span>&nbsp;ago
+                        </p>
+                    </div>
+                    
+                </div>
+               
+            </div>
+        </a>
+    </li>
+</div>
+<div class="loader-container" *ngIf="!showHtml">
+    <div class="lds-facebook">
+      <img src="assets/images/whiteBgLoader.gif" />
+    </div>
+</div>
+

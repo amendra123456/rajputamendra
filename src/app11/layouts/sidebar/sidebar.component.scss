@@ -1,0 +1,36 @@
+/* Hide the sub-links by default */
+// .sub-links {
+//    display: none;
+//    list-style-type: none;
+//   }
+  
+//   /* Style the dropdown icon */
+//   .dropdown-icon {
+//     font-size: 12px;
+//     margin-left: 5px;
+//     cursor: pointer;
+//   }
+  
+//   /* Show the sub-links when the icon is clicked */
+// //   li:focus-within .sub-links {
+// //     display: block;
+// //   }
+  
+// //   /* Hide the sub-links when the main link or icon is not focused */
+// //   li:not(:focus-within) .sub-links {
+// //     display: none;
+// //   }
+
+//   .sub-link-hide{
+//     display: none !important;  
+//     height: 0 !important;
+//     transition: all 0.4s !important
+//   }
+//   .sub-link-show{
+//     display: block !important;
+//     height: auto !important;
+//     transition: all 0.4s !important
+//   }
+li a {
+    cursor: pointer !important;
+}

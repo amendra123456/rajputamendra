@@ -9,10 +9,10 @@
 
             <div class="listCountWrapper">
 
-                <div class="display">
-                    <!-- <button class="btn btn-light selectbox" (click)="generatePDF()">Pdf downlaod</button>
-                    &nbsp;&nbsp; -->
+                <div class="display">                    
                     <button class="btn btn-light selectbox" (click)="BacktoDash()">Back</button>&nbsp;
+                    <button class="btn btn-light selectbox" (click)="generatePDF()">Downlaod Pdf</button>&nbsp;
+                    <button class="btn btn-light selectbox" (click)="printReport()">Print Report</button>&nbsp;
                     <button class="btn btn-light selectbox" (click)="exportexcel()">Export to Excel</button>&nbsp;
                 </div>
             </div>
@@ -149,7 +149,7 @@
                             <td class="text-center">{{data?.affiliateNameData?(data?.affiliateNameData[0]?.name?data?.affiliateNameData[0]?.name:'N.A'):'N.A'}}</td>
                             <td class="text-center">{{data?.sourceName?(data?.sourceName[0]?.name?data?.sourceName[0]?.name:'N.A'):'N.A'}}</td>
 
-                            <td class="text-center">{{data?.userMetaData?(data?.userMetaData[0]?.ipAddress ? data?.userMetaData[0]?.ipAddress:'N.A'):'N.A'}}</td>
+                            <td class="text-center">{{data?.ipAddress?data?.ipAddress:'N.A'}}</td>
                             <td class="text-center">{{data?.createdOn | date:'dd-MM-yyyy h:mm a'}}</td>
                             <!-- <td class="text-center">{{data.userMetaData[0].ipAddress ? data.userMetaData[0].ipAddress : 'N.A' }}</td>
                         

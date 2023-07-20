@@ -245,6 +245,9 @@ export class ConsumerDropListComponent implements OnInit {
     autoTable(doc, { html: '#excel-table' })
     doc.save(`${data}-data-table.pdf`);
   }
+  printReport():void{
+    this.service.printReport();
+  }
   BacktoDash() {
     this.router.navigate(['dashboard'])
   }

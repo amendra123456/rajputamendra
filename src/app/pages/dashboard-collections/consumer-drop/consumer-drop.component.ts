@@ -60,14 +60,14 @@ export class ConsumerDropComponent {
       this.totalYearForFilter.push(_i);
     }
 
-   // this.showMonthList();
+    this.showMonthList();
 
     var d = new Date();
     d.setDate(d.getDate() - 1);
     this.current_date = this._date.transform(new Date(d), "yyyy-MM-dd");
     // this.getConsumer_drop_details();
 
-   // this.toggleUserAsPerRole()
+    this.toggleUserAsPerRole()
 
   }
   role: any;

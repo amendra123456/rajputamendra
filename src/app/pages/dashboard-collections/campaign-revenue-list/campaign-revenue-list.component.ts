@@ -273,6 +273,9 @@ export class CampaignRevenueListComponent implements OnInit {
     autoTable(doc, { html: '#excel-table' })
     doc.save(`${this.basicData.category}-${this.basicData.planeName}-data-table.pdf`)
   }
+  printReport():void {
+  this.service.printReport();
+  }
   BacktoDash() {
     this.router.navigate(['dashboard'])
   }
@@ -388,7 +391,7 @@ export class CampaignRevenueListComponent implements OnInit {
     this.selectedDay = 'null';
     this.selectedMonth ='null';
     this.selectedYear = 'null';
-    //this.selectedPlan = 'null';
+    this.selectedPlan = 'null';
     //this.selectedCover = 'null';
     let params = null;
     this.date_title = 'All'

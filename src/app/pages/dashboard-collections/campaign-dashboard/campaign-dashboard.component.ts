@@ -133,7 +133,7 @@ export class CampaignDashboardComponent implements OnInit {
     // });
 
 
-   // this.showMonthList();
+    this.showMonthList();
 
     let currentYear: any = this._date.transform(new Date(), "yyyy");
 

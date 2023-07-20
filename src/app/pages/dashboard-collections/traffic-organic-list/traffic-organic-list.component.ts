@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./traffic-organic-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class TrafficOrganicListComponent implements OnInit {
   isFilter: boolean = false;
   fileName: any;
@@ -31,7 +32,6 @@ export class TrafficOrganicListComponent implements OnInit {
   day: string | undefined;
   month: string | undefined;
   year: string | undefined;
-
   constructor(private service: RootPageService, private _cd: ChangeDetectorRef,
     private _date: DatePipe, private router: Router) { }
 
@@ -52,7 +52,7 @@ export class TrafficOrganicListComponent implements OnInit {
     if (val == "All") {
       this.itemsPerPageC = 50000;
       this.Reset();
-    }    
+    }
   }
   laodTrafficData() {
     this.service.getTrafficDistAffiliate_Organic().subscribe((data: any) => {
@@ -318,33 +318,42 @@ export class TrafficOrganicListComponent implements OnInit {
     }
     this.sort('createdOn')
   }
- 
+
 
   exportexcel() {
     if (this.selectedType != "null" || this.selectedType != "null") {
       this.fileName = this.selectedType;
     } else {
       this.fileName = "All";
-    } 
+    }
     setTimeout(() => {
       /* pass here the table id */
-    let element = document.getElementById('excel-table')
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element)
+      let element = document.getElementById('excel-table')
+      const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element)
 
-    /* generate workbook and add the worksheet */
-    const wb: XLSX.WorkBook = XLSX.utils.book_new()
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new()
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
 
-    /* save to file */
-    XLSX.writeFile(wb, `Traffic Distribution (${this.fileName}) - ${this.date_title}.xlsx`)
-     }, 1500);
-    
+      /* save to file */
+      XLSX.writeFile(wb, `Traffic Distribution (${this.fileName}) - ${this.date_title}.xlsx`)
+    }, 1500);
+
   }
 
   generatePDF() {
+    if (this.selectedType != "null" || this.selectedType != "null") {
+      this.fileName = this.selectedType;
+    } else {
+      this.fileName = "All";
+    }
     const doc = new jsPDF()
     autoTable(doc, { html: '#excel-table' })
-    doc.save(`Traffic-organicList-table.pdf`)
+    doc.save(`(${this.fileName}) - ${this.date_title}.pdf`)
+  }
+ 
+  printReport():void {
+    this.service.printReport();    
   }
   BacktoDash() {
     this.router.navigate(['dashboard'])
@@ -356,7 +365,7 @@ export class TrafficOrganicListComponent implements OnInit {
 
   toggleFilter(str: any) {
     this.itemsPerPageC = 100;
-   // this.isFilter = true;
+    // this.isFilter = true;
     this.showHtmlChart = false
     // let params = `month=${month}&year=${year}&day=${onday}&hour=${hour}`;
     if (str == 'day') {
@@ -368,10 +377,7 @@ export class TrafficOrganicListComponent implements OnInit {
         d.setDate(d.getDate());
         let today_date = this._date.transform(d, 'yyyy-MM-dd');
         let params = `year=${today_date?.split('-')[0]}&month=${today_date?.split('-')[1]}&day=${today_date?.split('-')[2]}`;
-        this.day=params;
-        if (this.basicData.clientId != null) {
-          params += `&clientId=${this.basicData.clientId}`;
-        }
+        this.day = params;
         this.params = params
         if (this.data_type == 'Organic') {
           this.getApiCall_Organic(params)
@@ -391,10 +397,7 @@ export class TrafficOrganicListComponent implements OnInit {
         d.setDate(d.getDate() - 1);
         let today_date = this._date.transform(d, 'yyyy-MM-dd');
         let params = `year=${today_date?.split('-')[0]}&month=${today_date?.split('-')[1]}&day=${today_date?.split('-')[2]}`;
-        if (this.basicData.clientId != null) {
-          params += `&clientId=${this.basicData.clientId}`;
-        }
-        this.day=params;
+        this.day = params;
         this.params = params
         if (this.data_type == 'Organic') {
           this.getApiCall_Organic(params)
@@ -422,10 +425,7 @@ export class TrafficOrganicListComponent implements OnInit {
         params = `year=${this.selectedYear}`;
         this.date_title = `${this.selectedYear}`
       }
-      if (this.basicData.clientId != null) {
-        params += `&clientId=${this.basicData.clientId}`;
-      }
-      this.month=params;
+      this.month = params;
       this.params = params
       if (this.data_type == 'Organic') {
         this.getApiCall_Organic(params)
@@ -450,11 +450,8 @@ export class TrafficOrganicListComponent implements OnInit {
         params = `year=${this.selectedYear}`;
         this.date_title = `${this.selectedYear}`
       }
-      if (this.basicData.clientId != null) {
-        params += `&clientId=${this.basicData.clientId}`;
-      }
       this.params = params;
-      this.year=params;
+      this.year = params;
       if (this.data_type == 'Organic') {
         this.getApiCall_Organic(params);
       }
@@ -467,28 +464,26 @@ export class TrafficOrganicListComponent implements OnInit {
     }
     else if (str == 'type') {
       let str_p;
-      if(!this.isFilter  && this.selectedType!='null'){
-        str_p=this.params;
+      if (!this.isFilter && this.selectedType != 'null') {
+        str_p = this.params;
       }
-      if(this.isFilter  && this.selectedType!='null'){
-        str_p="";
+      if (this.isFilter && this.selectedType != 'null') {
+        str_p = "";
       }
-      if(this.isFilter  && this.selectedDay!='null'){
-        str_p +=this.day;
+      if (this.isFilter && this.selectedDay != 'null') {
+        str_p += this.day;
       }
       if (this.selectedYear == 'null') {
         this.selectedYear = this.totalYearForFilter[0];
       }
-      if(this.isFilter  && this.selectedMonth!='null' && this.selectedYear!='null'){
+      if (this.isFilter && this.selectedMonth != 'null' && this.selectedYear != 'null') {
         let month_key = this.Month_names.find((x: any) => x.name == this.selectedMonth).key
-        str_p += `&year=${this.selectedYear}&month=${month_key}`;       
+        str_p += `&year=${this.selectedYear}&month=${month_key}`;
       }
-      if(this.isFilter  && this.selectedMonth=='null' && this.selectedYear!='null'){
+      if (this.isFilter && this.selectedMonth == 'null' && this.selectedYear != 'null') {
         str_p += `&year=${this.selectedYear}`;
       }
-      if (this.basicData.clientId != null) {
-        str_p += `&clientId=${this.basicData.clientId}`;
-      }
+
       //console.log(str_p)
       if (this.selectedType == 'Affiliate') {
         this.getApiCall_Affiliate(str_p);
@@ -502,10 +497,13 @@ export class TrafficOrganicListComponent implements OnInit {
   }
 
   getApiCall_Affiliate(params: any) {
-    this.p=1;
+    this.p = 1;
     this.params = params
     this.$table = []
-    this.count = 0
+    this.count = 0;
+    if (this.basicData.clientId != null) {
+      params += `&clientId=${this.basicData.clientId}`;
+    }
     this.service.getAffiliate_Traffic_DrillDownReport(params).subscribe((data: any) => {
       this.showHtmlChart = true
       if (data.status == 200 && data.data.Affiliate_Detail) {
@@ -524,11 +522,13 @@ export class TrafficOrganicListComponent implements OnInit {
   }
 
   getApiCall_Organic(params: any) {
-    this.p=1;
+    this.p = 1;
     this.params = params
     this.$table = []
     this.count = 0
-
+    if (this.basicData.clientId != null) {
+      params += `&clientId=${this.basicData.clientId}`;
+    }
     this.service.getOrganic_Traffic_DrillDownReport(params).subscribe((data: any) => {
       this.showHtmlChart = true
       if (data.status == 200 && data.data.OrganicData) {
@@ -547,7 +547,7 @@ export class TrafficOrganicListComponent implements OnInit {
 
   line_name: any = '';
   Reset() {
-    this.itemsPerPageC=1000;
+    this.itemsPerPageC = 1000;
     this.isFilter = true;
     this.selectedType = "null"
     this.showHtmlChart = false
@@ -563,10 +563,13 @@ export class TrafficOrganicListComponent implements OnInit {
     this.get_All_data(params)
   }
 
-  get_All_data(params:any){
-    this.p=1;
+  get_All_data(params: any) {
+    this.p = 1;
     let _Data1: any = [];
     let _Data2: any = [];
+    if (this.basicData.clientId != null) {
+      params += `&clientId=${this.basicData.clientId}`;
+    }
     this.service.getAffiliate_Traffic_DrillDownReport(params).subscribe((data: any) => {
       // this.showHtmlChart=true
       if (data.status == 200 && data.data.Affiliate_Detail) {
@@ -602,8 +605,8 @@ export class TrafficOrganicListComponent implements OnInit {
   sortColumn: any;
   sortDirection: any;
 
-  
-  sort(column:any ){
+
+  sort(column: any) {
     if (column === this.sortColumn) {
       // If the same column is clicked again, reverse the sort direction
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
@@ -614,7 +617,7 @@ export class TrafficOrganicListComponent implements OnInit {
     }
 
     // Perform the actual sorting
-    this.$table.sort((a :any, b:any) => {
+    this.$table.sort((a: any, b: any) => {
       const valueA = a[column];
       const valueB = b[column];
 
@@ -628,7 +631,7 @@ export class TrafficOrganicListComponent implements OnInit {
     });
     this._cd.detectChanges()
   }
-  resetAll(){
+  resetAll() {
     let params: any = null
     if (this.basicData.clientId != null) {
       params = `?clientId=${this.basicData.clientId}`

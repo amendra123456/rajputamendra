@@ -115,7 +115,8 @@ export class Top5CompetitionListComponent implements OnInit {
         let today_date = this._date.transform(d, 'yyyy-MM-dd');
         this.day=today_date;
         
-        params = `?day=${today_date}&productName=${this.productName}&filter=${this.filter}`;
+        params = `?day=${today_date}&filter=${this.filter}`;
+        if(this.productName!='null'){params +=`&productName=${this.productName}`;}
       } 
       else {
         this.date_title = 'Yesterday';
@@ -123,7 +124,8 @@ export class Top5CompetitionListComponent implements OnInit {
         d.setDate(d.getDate() - 1);
         let yesterday_date = this._date.transform(d, 'yyyy-MM-dd');
         this.day=yesterday_date;
-        params = `?day=${yesterday_date}&productName=${this.productName}&filter=${this.filter}`;
+        params = `?day=${yesterday_date}&filter=${this.filter}`;
+        if(this.productName!='null'){params +=`&productName=${this.productName}`;}
       }
     }
     else if (str == 'month') {
@@ -134,19 +136,22 @@ export class Top5CompetitionListComponent implements OnInit {
       }
       if (this.selectedMonth != 'null' && this.selectedYear != 'null') {
        // this.params = `?month=${this.selectedYear}-${this.selectedMonth}-01&pageName=${this.pageName}`;
-        params = `?month=${this.selectedYear}-${month}-01&productName=${this.productName}&filter=${this.filter}`;
+        params = `?month=${this.selectedYear}-${month}-01&filter=${this.filter}`;
+        if(this.productName!='null'){params +=`&productName=${this.productName}`;}
         this.date_title = `${this.selectedMonth}-${this.selectedYear}`;
       }
       if (this.selectedMonth != 'null' && this.selectedYear == 'null') {
         this.selectedYear = this.totalYearForFilter[0];
        // this.params = `?month=${this.selectedYear}-${this.selectedMonth}-01&pageName=${this.pageName}`;
-        params = `?month=${this.selectedYear}-${month}-01&productName=${this.productName}&filter=${this.filter}`;
+        params = `?month=${this.selectedYear}-${month}-01&filter=${this.filter}`;
+        if(this.productName!='null'){params +=`&productName=${this.productName}`;}
         // let month = this.monthsList.find((x:any)=>{return x.key == this.selectedMonth}).value;
         this.date_title = `${this.selectedMonth}-${this.selectedYear}`;
        // this.api_request(this.params);
       }
       if (this.selectedYear != 'null' && this.selectedMonth == 'null') {
-            params = `?year=${this.selectedYear}-01-01&productName=${this.productName}&filter=${this.filter}`;
+            params = `?year=${this.selectedYear}-01-01&filter=${this.filter}`;
+            if(this.productName!='null'){params +=`&productName=${this.productName}`;}
             this.date_title = `${this.selectedYear}`;
      
       }
@@ -158,12 +163,14 @@ export class Top5CompetitionListComponent implements OnInit {
      
       if (this.selectedMonth != 'null' && this.selectedYear != 'null') {
        let  month = this.monthsList.find((x: any) => x.value == this.selectedMonth).key;
-        params = `?month=${this.selectedYear}-${month}-01&productName=${this.productName}&filter=${this.filter}`;
+        params = `?month=${this.selectedYear}-${month}-01&filter=${this.filter}`;
+       if(this.productName!='null'){params +=`&productName=${this.productName}`;}
         this.date_title = `${this.selectedMonth}-${this.selectedYear}`;
       }
       
       else if (this.selectedYear != 'null' && this.selectedMonth == 'null') {
-        params = `?year=${this.selectedYear}-01-01&productName=${this.productName}&filter=${this.filter}`;
+        params = `?year=${this.selectedYear}-01-01&filter=${this.filter}`;
+        if(this.productName!='null'){params +=`&productName=${this.productName}`;}
         this.date_title = `${this.selectedYear}`
       }
     }  
@@ -172,7 +179,7 @@ export class Top5CompetitionListComponent implements OnInit {
       params = this.params?.replace(/(productName=)[^&]*/, `productName=${this.productName}`);
     }
     if(this.isFilter  && this.productName!='null'){
-      params = this.params?.replace(/(productName=)[^&]*/, `productName=${this.productName}`);
+      params = `?productName=${this.productName}&filter=${this.filter}`;
     }
     if(this.isFilter  && this.selectedDay!='null'){
       params +=  `&day=${this.day}`;
@@ -194,10 +201,13 @@ export class Top5CompetitionListComponent implements OnInit {
     }
     else if(str == 'filter'){
       if(!this.isFilter  && this.filter!='null'){
-        params = this.params?.replace(/(filter=)[^&]*/, `productName=${this.filter}`);
+        params = this.params?.replace(/(filter=)[^&]*/, `filter=${this.filter}`);
       }
       if(this.isFilter  && this.filter!='null'){
-        params = this.params?.replace(/(filter=)[^&]*/, `filter=${this.filter}`);
+        params =  this.params?.replace(/(filter=)[^&]*/, `filter=${this.filter}`);
+      }
+      if(this.isFilter  && this.productName!='null'){
+        params += `&productName=${this.productName}`;
       }
       if(this.isFilter  && this.selectedDay!='null'){
         params +=  `&day=${this.day}`;
@@ -216,8 +226,7 @@ export class Top5CompetitionListComponent implements OnInit {
       if(this.isFilter  && this.selectedMonth == 'null' && this.selectedYear != 'null'){
         params +=`&year=${this.selectedYear}-01-01`;
       }
-    }
-     console.log(params)
+    }     
     this.service.TopFiveComp_DrillDownReport(params).subscribe((data: any) => {
       this.showHtmlChart = true;
       this.$table = [];
@@ -385,6 +394,12 @@ export class Top5CompetitionListComponent implements OnInit {
   }
 
   exportexcel() {
+    let name;
+    if(this.productName!='null'){
+     name=this.productName;
+    }else{
+      name="All";
+    }
     /* pass here the table id */
     let element = document.getElementById('excel-table');
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element)
@@ -393,7 +408,7 @@ export class Top5CompetitionListComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
 
     /* save to file */
-    XLSX.writeFile(wb, `Top Five Competition (${this.productName})-${this.date_title}}.xlsx`)
+    XLSX.writeFile(wb, `Top Five Competition (${name})-${this.date_title}}.xlsx`)
   }
 
   generatePDF() {
@@ -401,6 +416,9 @@ export class Top5CompetitionListComponent implements OnInit {
     const doc = new jsPDF()
     autoTable(doc, { html: '#excel-table' })
     doc.save(`${data}-data-table.pdf`)
+  }
+  printReport():void {
+    this.service.printReport();
   }
   // getTop5CompetitionDetailReport(obj:any){
   //   //let obj= {line_name: 'Conversion', x_axis_data: 49, y_axis_data: '12/2020', date_title: 'Year'}
@@ -518,18 +536,30 @@ export class Top5CompetitionListComponent implements OnInit {
     this.selectedDay = 'null'
     this.selectedMonth ="null"
     this.selectedYear = "null"
-    // this.productName = 'null'
+    this.productName = 'null'
     this.date_title = 'All'
-    let params = `?productName=${this.productName}&filter=${this.filter}`
-    this.params =params
+    let params = `?filter=${this.filter}`;    
+    this.getCompetitionName(params)
+    this.params =params;
+    let Competition:any=[];    
     this.service.TopFiveComp_DrillDownReport(params).subscribe((data: any) => {
       this.showHtmlChart = true;
       this.$table = data;
-      this.totalRecordCount = data.length;
+      
+      this.totalRecordCount = data.length;      
+      console.log(Competition);
       this._cd.detectChanges()
   })
 }
-
+getCompetitionName(params:any){
+  let Competition:any=[]; 
+  this.service.getTopFiveCompetitionForPieChart(params).subscribe((res:any)=>{
+    for (const k in res) { 
+      Competition.push(res[k].competition);
+    }    
+    this.competition_names=Competition;   
+  }); 
+}
 sortColumn: any;
 sortDirection: any;
 

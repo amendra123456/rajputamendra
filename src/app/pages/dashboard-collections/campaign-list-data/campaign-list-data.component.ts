@@ -186,6 +186,9 @@ export class CampaignListDataComponent implements OnInit {
     autoTable(doc, { html: '#excel-table' })
     doc.save(`${data.line_name}-data-table.pdf`)
   }
+  printReport():void {
+    this.rootPageService.printReport();
+  }
   getDrillCount(value: any) {
     this.count = this.campaignData.x_axis_data;
     let totalObj;
@@ -201,6 +204,9 @@ export class CampaignListDataComponent implements OnInit {
       }
       let month = Number(totalObj.month) < 10 ? `0${totalObj.month}` : totalObj.month;
       let params = `year=${totalObj.year}&month=${month}`;
+      this.selectedMonth=month;
+      this.selectedYear=totalObj.year;
+      this.selectedDay='null';
       if (totalObj.clientId != 'null') { params += `&clientId=${totalObj.clientId}` }
       if (totalObj.campaignId != 'null') { params += `&campaignId=${totalObj.campaignId}` }
 
@@ -255,6 +261,9 @@ export class CampaignListDataComponent implements OnInit {
         campaignId: this.campaignData.campaignId
       }
       let params = `year=${totalObj.year}&month=${totalObj.month}&day=${day}`;
+      this.selectedMonth=totalObj.month;
+      this.selectedYear=totalObj.year;
+      this.selectedDay='null';     
       if (totalObj.clientId != 'null') { params += `&clientId=${totalObj.clientId}` }
       if (totalObj.campaignId != 'null') { params += `&campaignId=${totalObj.campaignId}` }
       this.rootPageService.getDrillCountDataForMonth(params).subscribe((data: any) => {
@@ -341,12 +350,17 @@ export class CampaignListDataComponent implements OnInit {
         d.setDate(d.getDate());
         onday = this._date.transform(d, "yyyy-MM-dd");
         console.log("onday", onday)
-        onday = onday.split('-')[2]
+        onday = onday.split('-')[2];
+        this.selectedDay="today";
       }
       else {
         onday = totalObj.day;
+        this.selectedDay="yesterday";
       }
       let params = `year=${totalObj.year}&month=${totalObj.month}&day=${onday}&hour=${totalObj.hour}`;
+      this.selectedMonth=totalObj.month;
+      this.selectedYear=totalObj.year;
+      
       // if (totalObj.clientId != null) { params += `&clientId=${totalObj.clientId}` }
       // if (totalObj.campaignId != 'null') { params += `&campaignId=${totalObj.campaignId}` }
 
@@ -452,6 +466,7 @@ export class CampaignListDataComponent implements OnInit {
   }
 
   get_api_data_for_day(params: any) {
+    //this.selectedMonth=params.selectedMonth;
     this.p=1;
     if (this.campaignData.clientId != 'null') { params += `&clientId=${this.campaignData.clientId}` }
     if (this.campaignData.campaignId != 'null') { params += `&campaignId=${this.campaignData.campaignId}` }

@@ -277,9 +277,9 @@ export class TopFiveCampaignListComponent implements OnInit {
     this.selectedDay = 'null'
     this.selectedMonth = 'null'
     this.selectedYear = "null"
-    //this.selectedMatrics = 'null'
+    this.selectedMatrics = 'null'
     this.date_title = 'All'
-    let params: any = `?state=${this.selectedMatrics}&campaignId=${this.campaignId}`;
+    let params: any = `campaignId=${this.campaignId}`;
     if (this.basicData.clientId != null) {
       this.params = `&clientId=${this.basicData.clientId}`;
     }

@@ -1,0 +1,37 @@
+.dropdown-icon-item img{
+    width: 30px;
+    height: 30px;
+}
+.dropdown .row .btn {
+    display: inline;
+    width: fit-content;
+}
+
+.custom-dropdown{
+  width: fit-content !important;
+  margin-left: 30px !important
+}
+.navbar-header .options { display: none !important;}
+@media  screen and (max-width: 576px){
+   .navbar-header .options{
+      display: inline !important;
+   }
+  
+}
+.viewMore{
+    height: 25px;
+    box-shadow: none !important;
+    color: #7190ca;
+    border: 0;
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+        color: #185ddd;
+    }
+}
+
+.close {
+  display: none !important;
+} 
