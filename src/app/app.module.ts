@@ -18,6 +18,12 @@ import { UserAuthComponent } from './user-auth/user-auth.component';
 import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserCardComponent } from './users/user-card/user-card.component';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from 'src/app/reducers';
+import { EcomUtility } from './Repository/ecom-utility';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SellerAddProductComponent,
     SellerAuthComponent,
     SellerHomeComponent,
-    UserAuthComponent
+    UserAuthComponent,
+    MyOrdersComponent,
+    UserListComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +50,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     HttpClientModule,    
     NgbModule,
-    
+    StoreModule.forRoot(rootReducer)
    
   ],
-  providers: [],
+  providers: [EcomUtility],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

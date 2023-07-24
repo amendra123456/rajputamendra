@@ -5,6 +5,7 @@
 <div class="row">
     <div class="col-sm-7 shipping">
    <h3>Add Shipping Address</h3>
+   {{orderMsg}}
    <form #orderData="ngForm" class="common-form" (ngSubmit)="orderNow(orderData.value)">
     <input type="hidden" name="total_price" value="{{totalPrice}}" ngModel>
     <input type="hidden" name="user_id" value="{{userId}}" ngModel>

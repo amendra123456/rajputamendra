@@ -10,6 +10,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserCardComponent } from './users/user-card/user-card.component';
 
 const routes: Routes = [
   {
@@ -54,6 +57,27 @@ const routes: Routes = [
   {
     path: 'details/:productId',
     component: ProductDetailsComponent
+  },
+  {
+    path: 'my-orders',
+    component: MyOrderComponent
+  }
+  ,
+  {
+    path: '',
+    component: UserListComponent,
+
+    children:[{
+      path: 'user-list',
+      component:UserListComponent,
+      canActivate: [authGuard]
+    },
+    {
+      path: 'user-card/:id',
+      component:UserCardComponent,
+      canActivate: [authGuard]
+    },
+    ]
   }
 
 ];

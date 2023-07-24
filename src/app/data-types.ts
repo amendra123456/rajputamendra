@@ -25,7 +25,7 @@ export interface signUp{
 }
 export interface cart{
     id?: string | null;
-    user_id:number,
+    user_id?:number | undefined,
     cart:string,
     
 }
@@ -55,5 +55,14 @@ export interface order{
     email:string,
     address:string,
     contact:string,
-    id?:number
+    id?:number,
+    cart?:cart[]
+}
+
+export interface User{
+    name:string,
+    email:string,
+    mobile:string,
+    date:string,
+    id:number
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../services/product.service';
-import { order } from '../data-types';
+import { cart, order } from '../data-types';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class CheckoutComponent  {
   totalPrice:number|undefined;
-  userId:number|undefined;  
+  userId:number|undefined; 
+  cartData:cart[]|undefined; 
+  orderMsg:string="";
   constructor(private product: ProductService, private route: Router){}
   ngOnInit(){
     let userData = localStorage.getItem('user');
@@ -39,7 +41,7 @@ export class CheckoutComponent  {
         }
   
       });
-      
+      this.cartData=data1;
       console.log(data1);
       this.totalPrice=price;
     });
@@ -53,13 +55,23 @@ export class CheckoutComponent  {
     'address': order.address,
     'contact': order.contact,
     'total_price': this.totalPrice,
+    'cart':this.cartData,
     'price': 0
   };
-
-   /// console.log(order.email);return;
-  this.product.orderItem(orderData).subscribe((res)=>{
+  let userData = localStorage.getItem('user');
+  let userId = userData && JSON.parse(userData).id;
+  this.product.deleteUserCart(userId);
+   /// console.log(order.email);return;q
+   userId && this.product.orderItem(orderData).subscribe((res)=>{
     console.log(res);
-    this.route.navigate(['my-order']);
+    this.orderMsg="order placed sucessfully!"
+    // this.cartData?.forEach((item: any)=>{
+    //   return item.id && this.product.deleteCartItem(item.id);
+    // })
+    setTimeout(() => {
+      this.route.navigate(['my-orders']);
+    }, 5000);
   })
+  
   }
 }

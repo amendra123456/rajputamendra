@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../services/product.service';
-import { cartData, priceSummary } from '../data-types';
+import { cart, cartData, priceSummary } from '../data-types';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -17,12 +18,16 @@ export class CartPageComponent {
     tax: 0,
     discount: 0
   }
-  constructor(private product: ProductService,  private route: Router) { }
+  cart: cart[]|undefined;
+  constructor(private product: ProductService,  private route: Router, private user: UserService) { }
   ngOnInit() {
-
+  this.loadDetails();
+    
+  }
+  loadDetails(){
     let userData = localStorage.getItem('user');
     let userId = userData && JSON.parse(userData).id;
-    this.product.getCartItem(userId).subscribe((res) => {
+    userId && this.product.getCartItem(userId).subscribe((res) => {
       let data1 = [];
       for (var key in res) {
         if (res.hasOwnProperty(key)) {
@@ -35,7 +40,7 @@ export class CartPageComponent {
           }
           // console.log("Cart: ", cart); break;
         }
-        //console.log(data);
+        console.log(data1);
       }
 
       this.cartData = data1;
@@ -51,10 +56,27 @@ export class CartPageComponent {
       this.priceSummary.tax = price / 10;
       this.priceSummary.discount = price / 10;
       this.priceSummary.total = this.priceSummary.price + this.priceSummary.tax - this.priceSummary.discount + this.priceSummary.delivery;
-      console.log(price);
+     if(!this.cartData.length){
+     this.route.navigate(['/']);
+     }
     });
   }
   checkout(){
    this. route.navigate(['checkout']);
+  }
+  removeCart(data:any){
+  let userId = this.user.checkUserLoggedIn();
+  console.log(data);
+  let val:any= this.cartData?.filter((item)=>data.id != item.id);
+  console.log(val);
+  let cart=[{   
+    cart:val,
+  }];
+  if(val){
+    
+    this.product.updateUserCart(val, userId);
+    this.loadDetails();
+  }
+  
   }
 }

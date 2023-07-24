@@ -10,6 +10,7 @@ import { Product } from '../data-types';
 export class HomeComponent {
   imageProductData:Product[] | undefined;
   trendyProductData:Product[] | undefined;
+  removeCart = false;
   constructor(private product:ProductService){}
   ngOnInit(){
     this.product.getPopularProduct().subscribe((res)=>{
@@ -18,6 +19,20 @@ export class HomeComponent {
     this.product.getTrendyProduct().subscribe((res)=>{
      this.trendyProductData=res;
     });
+  }
+  addToCart(product:Product){
+    product.quantity = 1;
+  console.log(product);
+  if (product) {
+    product.quantity = 1;
+    //  console.warn(this.productDetail.quantity);
+    if (!localStorage.getItem('user')) {
+      this.product.localAddToCart(product);
+    } else {
+      this.product.localAddToCart(product);
+    }
+    this.removeCart = true;
+  }
   }
   
 }

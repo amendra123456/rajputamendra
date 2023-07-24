@@ -53,6 +53,11 @@ cursor: not-allowed;
 a{
     cursor: pointer;
 }
-
+h1 h3 a{
+    text-decoration: none;
+}
+ a {
+    text-decoration: none !important;
+}
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
