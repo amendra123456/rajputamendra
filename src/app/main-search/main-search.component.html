@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <img src="/assets/newimages/banner.webp" alt="" class="img-fluid" />
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <div class="form_box_section" id="form_box">
+                <form class="" target="_blank" [formGroup]="searchForm">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="text-white form_head">Get the Best Chardham Planned by Experts!</h3>
+
+                        </div>
+                    </div>
+
+                    <div class="row align-items-end">
+                        <div class="col-sm mb-2">
+                            <label>Select Package </label>
+                            <select class="form-control" id="package" name="package" formControlName="package" required>
+                                <option value="Chardhaam" *ngFor="let package of packageOptions"
+                                    [value]="package.category_id">{{package.category_id}}</option>
+                                <!--<option value="Dodhaam">Dodhaam</option>-->
+                                <!--<option value="Kedarnath">Kedarnath</option>-->
+
+                            </select>
+                        </div>
+                        <div class="col-sm mb-2">
+                            <label>Select Person</label>
+                            <select class="form-control" id="nop" name="nop" formControlName="nop">
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm mb-2">
+                            <label>Mobile Number</label>
+                            <input type="text" name="mobile" formControlName="mobile" required class="form-control">
+                        </div>
+                        <div class="col-sm mb-2">
+                            <label>Select Travel Month</label>
+                            <select class="form-control" id="year" name="year" formControlName="year">
+                                <option value="APR">APR</option>
+                                <option value="MAY">MAY</option>
+                                <option value="JUNE">JUNE</option>
+                                <option value="JULY">JULY</option>
+                                <option value="AUG">AUG</option>
+                                <option value="SEP">SEP</option>
+                                <option value="OCT">OCT</option>
+                                <option value="NOV">NOV</option>
+                                <option value="DEC">DEC</option>
+                                <option value="JAN">JAN</option>
+                            </select>
+                        </div>
+                        <div class="col-sm  mb-2">
+                            <label></label>
+                            <input type="submit" name="" class="btn_form" id="getclick" value="Get Free Quotes">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
