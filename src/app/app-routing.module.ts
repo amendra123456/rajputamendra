@@ -23,8 +23,12 @@ const routes: Routes = [
     component: TermsconditionComponent
   },
   {
-    path: '',
+    path: 'package',
     loadChildren: () => import('./view-detail/view-detail.module').then(m => m.ViewDetailModule)
+  },
+  {
+    path: 'tour',
+    loadChildren: () => import('./packages/tour-packages.module').then(m => m.TourPakagesModule),
   }
 ];
 

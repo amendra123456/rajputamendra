@@ -37,6 +37,25 @@
 #itinerary{
     margin-bottom: 40px;
 }
+.page_list li {
+    margin-bottom: 12px !IMPORTANT;
+}
+.page_list a {
+    font-size: 14px !important;
+    font-family: 'Lato', sans-serif !important;
+    color: black;
+}
+.page_list li {
+    margin-bottom: 12px !important;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+.mt-5 {
+    margin-top: 0rem!important;
+}
+.img-fluid{
+margin-bottom: 48px;
+}
 @media (max-width:740px){
     .col-sm-12 {
         margin-left: 9px;

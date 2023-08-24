@@ -16,6 +16,7 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { HomeComponent } from './home/home.component';
 import { TermsconditionComponent } from './termscondition/termscondition.component';
 import { MainSearchComponent } from './main-search/main-search.component';
+import { MainSearchModule } from './main-search/main-search.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,7 @@ import { MainSearchComponent } from './main-search/main-search.component';
     HomeContentComponent,
     HomeComponent,
     TermsconditionComponent,
-    MainSearchComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -36,8 +37,9 @@ import { MainSearchComponent } from './main-search/main-search.component';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    MainSearchModule
+  ],  
   providers: [],
   bootstrap: [AppComponent]
 })

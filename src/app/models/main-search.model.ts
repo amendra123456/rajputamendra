@@ -7,4 +7,5 @@ export interface MainSearch {
     pdf:any;
     created_at:any;
     filename:any;
+    status?:any
 }

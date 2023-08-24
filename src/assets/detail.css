@@ -9290,10 +9290,15 @@ a#retail-link {
 }
 
 .price {
-    font: 1.85714em "Lato Bold";
+    /* font: 1.85714em "Lato Bold"; */
     position: relative
 }
-
+.best_price .price
+{
+    
+    padding: 0 7px !important;
+    text-align: center;
+}
 .price+.ico-info {
     position: absolute;
     top: 20px

@@ -7,7 +7,7 @@ import { ProceedDetailComponent } from './proceed-detail/proceed-detail.componen
 const routes: Routes = [
   {
     path:'view-detail',
-    component: PackDetailComponent
+    component: PackDetailComponent,
   },
   {
     path:'proceed-detail',
